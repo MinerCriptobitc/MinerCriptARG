@@ -20,13 +20,16 @@ header {
     background: linear-gradient(135deg,#0d1a2a,#081021);
     padding: 50px 20px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    position: relative;
+    z-index: 2;
 }
 header h1 { font-family: 'Orbitron', sans-serif; font-size: 42px; color: #00f0ff; margin-bottom: 10px; text-shadow: 0 0 8px #00f0ff; animation: glowTitle 2.5s infinite alternate; }
 header p { font-size: 18px; color: #a0c0ff; }
 
+.logo-container { position: relative; z-index:2; }
 .logo-container img { width: 220px; margin-top: 20px; border-radius: 15px; }
 
-section { padding: 50px 20px; }
+section { padding: 50px 20px; position: relative; z-index: 2; }
 .card {
     background: rgba(20,35,60,0.85);
     margin: 25px auto;
@@ -69,7 +72,7 @@ button {
 }
 button:hover { transform: scale(1.05); box-shadow: 0 0 25px #00f0ff; }
 
-.team-photos { display: flex; flex-wrap: wrap; justify-content: center; margin-top: 20px; }
+.team-photos { display: flex; flex-wrap: wrap; justify-content: center; margin-top: 20px; position: relative; z-index:2; }
 .photo-container { position: relative; margin: 10px; opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
 .photo-container.show { opacity: 1; transform: translateY(0); }
 .team-photos img { width: 150px; border-radius: 15px; transition: 0.4s; }
@@ -93,15 +96,7 @@ button:hover { transform: scale(1.05); box-shadow: 0 0 25px #00f0ff; }
 .payment-methods p.binance { color: #f7931a; }
 .payment-methods p.cbu { color: #4caf50; }
 
-.whatsapp-link {
-    display: inline-flex; align-items: center; background: #25D366;
-    color: white; padding: 10px 20px; border-radius: 30px; font-weight: bold;
-    margin-top: 15px; transition: 0.3s;
-}
-.whatsapp-link img { width: 25px; margin-right: 10px; }
-.whatsapp-link:hover { transform: scale(1.05); box-shadow: 0 0 15px #25D366; }
-
-#cryptoRain { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-1; background: #0b0f1e; }
+#cryptoRain { position: fixed; top:0; left:0; width:100%; height:100%; z-index:1; background: #0b0f1e; }
 </style>
 </head>
 <body>
@@ -145,37 +140,6 @@ button:hover { transform: scale(1.05); box-shadow: 0 0 25px #00f0ff; }
 </div>
 </div>
 
-<div class="card">
-<h2>Minero Whatsminer M30S++</h2>
-<ul style="text-align:left;">
-    <li>Hashrate: 112 TH/s</li>
-    <li>Consumo eléctrico: 3472 W ±10%</li>
-    <li>Fuente de alimentación recomendada: 220V</li>
-    <li>Refrigeración: ventiladores integrados</li>
-    <li>Conexión estable a Internet requerida</li>
-    <li>Compatible con pools de minería principales</li>
-</ul>
-</div>
-
-<div class="card">
-<h2>Módulos ASIC</h2>
-<p>Contamos con 6 equipos ASIC, distribuidos en 3 filas × 2 por fila:</p>
-<div class="asic-grid">
-    <div class="asic-card">ASIC 1</div>
-    <div class="asic-card">ASIC 2</div>
-    <div class="asic-card">ASIC 3</div>
-    <div class="asic-card">ASIC 4</div>
-    <div class="asic-card">ASIC 5</div>
-    <div class="asic-card">ASIC 6</div>
-</div>
-</div>
-
-<div class="card">
-<h2>Usuarios registrados</h2>
-<p class="user-counter">7</p>
-<p>Súmate al equipo de minería y sé parte del proyecto.</p>
-</div>
-
 <!-- Participar -->
 <div class="card">
 <h2>Participar y unirse al equipo</h2>
@@ -196,50 +160,16 @@ button:hover { transform: scale(1.05); box-shadow: 0 0 25px #00f0ff; }
 <p id="formMsg" style="margin-top:10px; color:#00f0ff;"></p>
 </div>
 
-<!-- Cómo minar -->
-<div class="card">
-<h2>Cómo recibir pagos y minar correctamente</h2>
-<p>Necesitas una wallet compatible con la moneda que minas para recibir los pagos. Para Bitcoin (BTC) recomendamos:</p>
-<ul style="text-align:left;">
-    <li>💻 Wallet Electrum</li>
-    <li>👛 Hardware wallets recomendadas para grandes cantidades</li>
-</ul>
-
-<p>Ejemplo completo (minería de Ethereum Classic - ETC):</p>
-<ol style="text-align:left;">
-    <li>🖥️ <strong>Equipo recomendado:</strong>
-        <ul>
-            <li>6 × NVIDIA RTX 3060 Ti</li>
-            <li>Motherboard compatible</li>
-            <li>PSU de 1200W</li>
-            <li>Rig frame y ventiladores</li>
-        </ul>
-    </li>
-    <li>🪙 <strong>Pool de minería:</strong> Ethermine, 2Miners, etc.</li>
-    <li>👛 <strong>Wallet para recibir ETC:</strong> MetaMask configurado para la red Ethereum Classic</li>
-    <li>🧠 <strong>Configura tu software de minado:</strong> T-rex, TeamRedMiner o NBMiner con tu dirección de wallet y pool</li>
-</ol>
-
-<p>Tips importantes:</p>
-<ul style="text-align:left;">
-    <li>✔ Calcula costo de luz antes de minar: la minería consume mucha energía.</li>
-    <li>✔ Usa siempre wallets seguros (ideal hardware wallets para grandes cantidades).</li>
-    <li>✔ Elige moneda rentable según mercado y dificultad.</li>
-</ul>
-</div>
-
-</section>
-
 <footer>
 ©️ 2026 Ángel Cripto Mining - Proyecto privado independiente
 </footer>
 
 <script>
-// Fotos fade-in
+// Fade-in fotos
 const photos = document.querySelectorAll('.photo-container');
 photos.forEach((photo,i)=>setTimeout(()=>photo.classList.add('show'), i*300));
 
-// Participar
+// Formulario Participar
 const joinForm = document.getElementById('joinForm');
 const formMsg = document.getElementById('formMsg');
 const paymentDiv = document.getElementById('paymentInfo');
@@ -260,7 +190,7 @@ joinForm.addEventListener('submit', function(e){
     }
 });
 
-// Lluvia de criptos más grande
+// Lluvia de criptos más grande y detrás de todo
 const canvas = document.getElementById('cryptoRain');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
@@ -272,7 +202,7 @@ const cryptos = [
     {symbol:'₮', color:'#25d366'},
     {symbol:'Ƀ', color:'#00f0ff'}
 ];
-const fontSize = 32; // más grande
+const fontSize = 32;
 let columns = Math.floor(canvas.width / fontSize);
 let drops = Array(columns).fill().map(_ => ({y:Math.random()*canvas.height, speed:Math.random()*2+1, symbolIndex:Math.floor(Math.random()*cryptos.length)}));
 function draw() {
@@ -299,19 +229,6 @@ window.addEventListener('resize',()=>{
     columns = Math.floor(canvas.width / fontSize);
     drops = Array(columns).fill().map(_ => ({y:Math.random()*canvas.height, speed:Math.random()*2+1, symbolIndex:Math.floor(Math.random()*cryptos.length)}));
 });
-
-// Contador usuarios
-const userCounter = document.querySelector('.user-counter');
-const startDate = new Date(2026,1,20);
-function updateUsers() {
-    const now = new Date();
-    const diff = now - startDate;
-    const daysPassed = Math.floor(diff / (1000*60*60*24));
-    const added = Math.floor(daysPassed/2);
-    userCounter.textContent = 7 + added;
-}
-updateUsers();
-setInterval(updateUsers,3600000);
 </script>
 
 </body>
