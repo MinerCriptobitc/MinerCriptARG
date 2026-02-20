@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>MinerCriptARG1</title>
     <style>
-        /* ====== Reset y Body ====== */
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -15,7 +14,6 @@
             transition: background 0.5s, color 0.5s;
         }
 
-        /* ====== Header ====== */
         header {
             background: #111827;
             padding: 60px 20px;
@@ -25,14 +23,8 @@
         h1 { font-size: 40px; margin-bottom: 10px; }
         p { font-size: 18px; }
 
-        /* ====== Logo ====== */
-        .logo-container img {
-            max-width: 100%;
-            height: auto;
-            margin-top: 30px;
-        }
+        .logo-container img { max-width: 100%; height: auto; margin-top: 30px; }
 
-        /* ====== Secciones ====== */
         section { padding: 50px 20px; }
         .card {
             background: #1e293b;
@@ -43,12 +35,8 @@
             max-width: 700px;
             transition: transform 0.4s, box-shadow 0.4s;
         }
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
 
-        /* ====== Botón ====== */
         button {
             background: linear-gradient(45deg, #f7931a, #ffb347);
             border: none;
@@ -61,12 +49,8 @@
             color: #111;
             transition: 0.3s;
         }
-        button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 15px #f7931a;
-        }
+        button:hover { transform: scale(1.05); box-shadow: 0 0 15px #f7931a; }
 
-        /* ====== Footer ====== */
         footer {
             background: #111827;
             padding: 20px;
@@ -75,183 +59,201 @@
             transition: background 0.5s;
         }
 
-        /* ====== Modo Claro / Día ====== */
         body.light-mode { background: #c1c1c1; color: #111; }
-        body.light-mode header,
-        body.light-mode footer { background: #d1d5db; color: #111; }
+        body.light-mode header, body.light-mode footer { background: #d1d5db; color: #111; }
         body.light-mode .card { background: #ffffff; color: #111; }
 
-        /* ====== Métodos de pago ====== */
-        .payment-methods { 
-            margin-top: 20px;
-            text-align: left;
-            background: #111827;
-            padding: 20px;
-            border-radius: 15px;
-            display: none;
-        }
+        .payment-methods { margin-top: 20px; text-align: left; background: #111827; padding: 20px; border-radius: 15px; display: none; }
         .payment-methods p { font-size: 16px; margin: 8px 0; }
         .payment-methods p.binance { color: #f7931a; }
         .payment-methods p.cbu { color: #4caf50; }
 
-        .whatsapp-link {
-            display: inline-flex;
-            align-items: center;
-            background: #25D366;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 15px;
-            transition: 0.3s;
-        }
+        .whatsapp-link { display: inline-flex; align-items: center; background: #25D366; color: white; padding: 10px 20px; border-radius: 30px; text-decoration: none; font-weight: bold; margin-top: 15px; transition: 0.3s; }
         .whatsapp-link:hover { transform: scale(1.05); box-shadow: 0 0 10px #25D366; }
         .whatsapp-link img { width: 25px; margin-right: 10px; }
 
-        /* ====== Animaciones fade-in + slide ====== */
         .fade-slide { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
         .fade-slide.show { opacity: 1; transform: translateY(0); }
 
-        /* ====== Fotos de equipo ====== */
+        .team-photos { display: flex; flex-wrap: wrap; justify-content: center; }
         .team-photos img { width: 150px; margin: 10px; border-radius: 10px; }
 
-        /* ====== Canvas lluvia de criptos ====== */
-        #cryptoRain { 
-            position: fixed; top: 0; left: 0; z-index: -1; 
-        }
+        .asic-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; justify-items: center; }
+        .asic-card { background: #1e293b; padding: 15px; border-radius: 15px; width: 100%; max-width: 300px; transition: transform 0.4s, box-shadow 0.4s; }
+        .asic-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+
+        #cryptoRain { position: fixed; top: 0; left: 0; z-index: -1; }
+
+        .user-counter { margin-top: 20px; font-size: 20px; font-weight: bold; }
+        .founders { margin-top: 10px; font-size: 16px; color: #ffeb3b; }
     </style>
 </head>
 <body>
 
-    <!-- Canvas de criptos -->
-    <canvas id="cryptoRain"></canvas>
+<canvas id="cryptoRain"></canvas>
 
-    <!-- Logo -->
-    <div class="logo-container fade-slide">
-        <img src="./logo.png" alt="Logo MinerCriptoARG">
+<div class="logo-container fade-slide">
+    <img src="./logo.png" alt="Logo MinerCriptoARG">
+</div>
+
+<header class="fade-slide">
+    <h1>MinerCriptoARG</h1>
+    <p>Infraestructura privada de minería de Bitcoin</p>
+</header>
+
+<section>
+    <div class="card fade-slide">
+        <h2>¿Qué hacemos?</h2>
+        <p>Operamos equipos de minería de Bitcoin con infraestructura propia en Argentina.</p>
     </div>
 
-    <!-- Header -->
-    <header class="fade-slide">
-        <h1>MinerCriptoARG</h1>
-        <p>Infraestructura privada de minería de Bitcoin</p>
-    </header>
+    <div class="card fade-slide">
+        <h2>Participar</h2>
+        <p>Podés participar del proyecto contactándonos directamente para recibir información detallada.</p>
+        <button id="infoBtn">Solicitar información</button>
 
-    <!-- Secciones -->
-    <section>
-        <div class="card fade-slide">
-            <h2>¿Qué hacemos?</h2>
-            <p>Operamos equipos de minería de Bitcoin con infraestructura propia en Argentina.</p>
+        <div id="paymentInfo" class="payment-methods fade-slide">
+            <p class="binance">💰 <strong>Binance:</strong> ID 801767852</p>
+            <p class="cbu">🏦 <strong>Transferencia bancaria:</strong> CBU 1430001713033086180018</p>
+            <a href="https://wa.me/541170663630" target="_blank" class="whatsapp-link">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+                Contacto WhatsApp
+            </a>
         </div>
+    </div>
 
-        <div class="card fade-slide">
-            <h2>Participar</h2>
-            <p>Podés participar del proyecto contactándonos directamente para recibir información detallada.</p>
-            <button id="infoBtn">Solicitar información</button>
+    <div class="card fade-slide">
+        <h2>Transparencia</h2>
+        <p>Proyecto en etapa de expansión. La minería de criptomonedas implica resolver problemas matemáticos complejos, validando y asegurando transacciones en una blockchain sin intermediarios. Este proceso descentralizado evita el doble gasto y permite crear nuevas monedas como recompensa, consumiendo alto poder eléctrico.</p>
+    </div>
 
-            <div id="paymentInfo" class="payment-methods fade-slide">
-                <p class="binance">💰 <strong>Binance:</strong> ID 801767852</p>
-                <p class="cbu">🏦 <strong>Transferencia bancaria:</strong> CBU 1430001713033086180018</p>
-                <a href="https://wa.me/541170663630" target="_blank" class="whatsapp-link">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-                    Contacto WhatsApp
-                </a>
-            </div>
+    <div class="card fade-slide">
+        <h2>Nuestra visión</h2>
+        <p>Convertirnos en la infraestructura privada de minería de Bitcoin más sólida y confiable de Argentina.</p>
+    </div>
+
+    <!-- Sección Equipo -->
+    <div class="card fade-slide">
+        <h2>Equipo</h2>
+        <p>Conocé al equipo que hace posible MinerCriptoARG:</p>
+        <div class="team-photos">
+            <img src="./persona1.jpg" alt="Miembro del equipo">
+            <img src="./persona2.jpg" alt="Miembro del equipo">
+            <img src="./persona3.jpg" alt="Miembro del equipo">
+            <img src="./persona4.jpg" alt="Miembro del equipo">
+            <img src="./persona5.jpg" alt="Miembro del equipo">
         </div>
-
-        <div class="card fade-slide">
-            <h2>Transparencia</h2>
-            <p>Proyecto en etapa de expansión. La minería de criptomonedas implica resolver problemas matemáticos complejos, validando y asegurando transacciones en una blockchain sin intermediarios. Este proceso descentralizado evita el doble gasto y permite crear nuevas monedas como recompensa, consumiendo alto poder eléctrico.</p>
+        <div class="founders">
+            Fundador: Pablo Daniel Sosa <br>
+            Cofundador: Fernando Medina
         </div>
+    </div>
 
-        <div class="card fade-slide">
-            <h2>Nuestra visión</h2>
-            <p>Convertirnos en la infraestructura privada de minería de Bitcoin más sólida y confiable de Argentina.</p>
+    <!-- Minero Whatsminer -->
+    <div class="card fade-slide">
+        <h2>Minero Whatsminer M30S++</h2>
+        <p>El <strong>Whatsminer M30S++</strong> es un minero ASIC de alto rendimiento para minar Bitcoin.</p>
+        <ul style="text-align:left;">
+            <li>Hashrate: 112 TH/s</li>
+            <li>Consumo eléctrico: 3472 W ± 10%</li>
+            <li>Fuente de alimentación recomendada: 220V</li>
+            <li>Refrigeración: ventiladores integrados de alta eficiencia</li>
+            <li>Requiere conexión estable a Internet</li>
+            <li>Compatible con pools de minería principales</li>
+        </ul>
+    </div>
+
+    <!-- Módulos ASIC -->
+    <div class="card fade-slide">
+        <h2>Módulos ASIC</h2>
+        <p>Contamos con 6 equipos ASIC, distribuidos en 3 filas × 2 por fila:</p>
+        <div class="asic-grid">
+            <div class="asic-card">ASIC 1</div>
+            <div class="asic-card">ASIC 2</div>
+            <div class="asic-card">ASIC 3</div>
+            <div class="asic-card">ASIC 4</div>
+            <div class="asic-card">ASIC 5</div>
+            <div class="asic-card">ASIC 6</div>
         </div>
+    </div>
 
-        <!-- Sección equipo -->
-        <div class="card fade-slide">
-            <h2>Equipo</h2>
-            <p>Conocé al equipo que hace posible MinerCriptoARG:</p>
-            <div class="team-photos">
-                <img src="./persona1.jpg" alt="Miembro del equipo">
-                <img src="./persona2.jpg" alt="Miembro del equipo">
-                <img src="./persona3.jpg" alt="Miembro del equipo">
-            </div>
-        </div>
-    </section>
+    <!-- Contador de usuarios -->
+    <div class="card fade-slide">
+        <h2>Usuarios registrados</h2>
+        <p class="user-counter">7</p>
+        <p>Súmate al equipo de minería y sé parte del proyecto.</p>
+    </div>
 
-    <!-- Footer -->
-    <footer class="fade-slide">
-        ©️ 2026 Ángel Cripto Mining - Proyecto privado independiente
-    </footer>
+</section>
 
-    <!-- Scripts -->
-    <script>
-        // Botón métodos de pago
-        const btn = document.getElementById('infoBtn');
-        const paymentInfo = document.getElementById('paymentInfo');
+<footer class="fade-slide">
+    ©️ 2026 Ángel Cripto Mining - Proyecto privado independiente
+</footer>
 
-        btn.addEventListener('click', () => {
-            if(paymentInfo.style.display === "none") {
-                paymentInfo.style.display = "block";
-                paymentInfo.classList.remove('show');
-                setTimeout(() => paymentInfo.classList.add('show'), 50);
-                btn.textContent = "Cerrar información";
-            } else {
-                paymentInfo.style.display = "none";
-                btn.textContent = "Solicitar información";
-            }
-        });
-
-        btn.addEventListener('mouseover', () => {
-            btn.style.background = 'linear-gradient(45deg, #ff6f61, #ffb347)';
-        });
-        btn.addEventListener('mouseout', () => {
-            btn.style.background = 'linear-gradient(45deg, #f7931a, #ffb347)';
-        });
-
-        // Fade-slide al cargar
-        window.addEventListener('load', () => {
-            const elements = document.querySelectorAll('.fade-slide');
-            elements.forEach((el,i) => setTimeout(() => el.classList.add('show'), i*200));
-        });
-
-        // Modo día/noche
-        const hour = new Date().getHours();
-        if(hour >= 6 && hour <= 18) document.body.classList.add('light-mode');
-
-        // Canvas lluvia de criptos
-        const canvas = document.getElementById('cryptoRain');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const cryptos = ['₿','Ξ','Ł','₮','Ƀ'];
-        const fontSize = 20;
-        const columns = Math.floor(canvas.width / fontSize);
-        const drops = Array(columns).fill(1);
-
-        function draw() {
-            ctx.fillStyle = 'rgba(193,193,193,0.05)';
-            ctx.fillRect(0,0,canvas.width,canvas.height);
-
-            ctx.fillStyle = '#111';
-            ctx.font = fontSize + 'px monospace';
-
-            for(let i=0; i<drops.length; i++){
-                const text = cryptos[Math.floor(Math.random()*cryptos.length)];
-                ctx.fillText(text, i*fontSize, drops[i]*fontSize);
-
-                if(drops[i]*fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
-                drops[i]++;
-            }
+<script>
+    // Métodos de pago
+    const btn = document.getElementById('infoBtn');
+    const paymentInfo = document.getElementById('paymentInfo');
+    btn.addEventListener('click', () => {
+        if(paymentInfo.style.display === "none") {
+            paymentInfo.style.display = "block";
+            paymentInfo.classList.remove('show');
+            setTimeout(() => paymentInfo.classList.add('show'), 50);
+            btn.textContent = "Cerrar información";
+        } else {
+            paymentInfo.style.display = "none";
+            btn.textContent = "Solicitar información";
         }
+    });
+    btn.addEventListener('mouseover', () => { btn.style.background = 'linear-gradient(45deg, #ff6f61, #ffb347)'; });
+    btn.addEventListener('mouseout', () => { btn.style.background = 'linear-gradient(45deg, #f7931a, #ffb347)'; });
 
-        setInterval(draw,100);
-        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
-    </script>
+    // Fade-slide al cargar
+    window.addEventListener('load', () => {
+        document.querySelectorAll('.fade-slide').forEach((el,i)=> setTimeout(()=>el.classList.add('show'), i*200));
+    });
+
+    // Modo día/noche
+    const hour = new Date().getHours();
+    if(hour >= 6 && hour <= 18) document.body.classList.add('light-mode');
+
+    // Canvas lluvia de criptos
+    const canvas = document.getElementById('cryptoRain');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const cryptos = ['₿','Ξ','Ł','₮','Ƀ'];
+    const fontSize = 20;
+    const columns = Math.floor(canvas.width / fontSize);
+    const drops = Array(columns).fill(1);
+    function draw() {
+        ctx.fillStyle = 'rgba(193,193,193,0.05)';
+        ctx.fillRect(0,0,canvas.width,canvas.height);
+        ctx.fillStyle = '#111';
+        ctx.font = fontSize+'px monospace';
+        for(let i=0;i<drops.length;i++){
+            const text = cryptos[Math.floor(Math.random()*cryptos.length)];
+            ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+            if(drops[i]*fontSize > canvas.height && Math.random()>0.975) drops[i]=0;
+            drops[i]++;
+        }
+    }
+    setInterval(draw,100);
+    window.addEventListener('resize',()=>{ canvas.width=window.innerWidth; canvas.height=window.innerHeight; });
+
+    // Contador de usuarios: empieza en 7, aumenta 1 cada 48 horas
+    const userCounter = document.querySelector('.user-counter');
+    const startDate = new Date(2026,1,20); // fecha de inicio, ejemplo: 20 feb 2026
+    function updateUsers() {
+        const now = new Date();
+        const diff = now - startDate;
+        const daysPassed = Math.floor(diff / (1000*60*60*24));
+        const added = Math.floor(daysPassed/2); // cada 2 días = 48h
+        userCounter.textContent = 7 + added;
+    }
+    updateUsers();
+    setInterval(updateUsers, 3600000); // actualizar cada hora
+</script>
 
 </body>
 </html>
