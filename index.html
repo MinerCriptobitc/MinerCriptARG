@@ -85,7 +85,6 @@
         #cryptoRain { position: fixed; top: 0; left: 0; z-index: -1; }
 
         .user-counter { margin-top: 20px; font-size: 20px; font-weight: bold; }
-        .founders { margin-top: 10px; font-size: 16px; color: #ffeb3b; }
     </style>
 </head>
 <body>
@@ -108,21 +107,6 @@
     </div>
 
     <div class="card fade-slide">
-        <h2>Participar</h2>
-        <p>Podés participar del proyecto contactándonos directamente para recibir información detallada.</p>
-        <button id="infoBtn">Solicitar información</button>
-
-        <div id="paymentInfo" class="payment-methods fade-slide">
-            <p class="binance">💰 <strong>Binance:</strong> ID 801767852</p>
-            <p class="cbu">🏦 <strong>Transferencia bancaria:</strong> CBU 1430001713033086180018</p>
-            <a href="https://wa.me/541170663630" target="_blank" class="whatsapp-link">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-                Contacto WhatsApp
-            </a>
-        </div>
-    </div>
-
-    <div class="card fade-slide">
         <h2>Transparencia</h2>
         <p>Proyecto en etapa de expansión. La minería de criptomonedas implica resolver problemas matemáticos complejos, validando y asegurando transacciones en una blockchain sin intermediarios. Este proceso descentralizado evita el doble gasto y permite crear nuevas monedas como recompensa, consumiendo alto poder eléctrico.</p>
     </div>
@@ -132,27 +116,23 @@
         <p>Convertirnos en la infraestructura privada de minería de Bitcoin más sólida y confiable de Argentina.</p>
     </div>
 
-    <!-- Sección Equipo -->
+    <!-- Sección Equipo actualizada -->
     <div class="card fade-slide">
         <h2>Equipo</h2>
         <p>Conocé al equipo que hace posible MinerCriptoARG:</p>
         <div class="team-photos">
-            <img src="./persona1.jpg" alt="Miembro del equipo">
-            <img src="./persona2.jpg" alt="Miembro del equipo">
-            <img src="./persona3.jpg" alt="Miembro del equipo">
-            <img src="./persona4.jpg" alt="Miembro del equipo">
-            <img src="./persona5.jpg" alt="Miembro del equipo">
-        </div>
-        <div class="founders">
-            Fundador: Pablo Daniel Sosa <br>
-            Cofundador: Fernando Medina
+            <img src="./persona6.jpg" alt="Miembro del equipo">
+            <img src="./persona7.jpg" alt="Miembro del equipo">
+            <img src="./persona8.jpg" alt="Miembro del equipo">
+            <img src="./persona9.jpg" alt="Miembro del equipo">
+            <img src="./persona10.jpg" alt="Miembro del equipo">
         </div>
     </div>
 
     <!-- Minero Whatsminer -->
     <div class="card fade-slide">
         <h2>Minero Whatsminer M30S++</h2>
-        <p>El <strong>Whatsminer M30S++</strong> es un minero ASIC de alto rendimiento para minar Bitcoin.</p>
+        <p>El <strong>Whatsminer M30S++</strong> es un minero ASIC de alto rendimiento para Bitcoin.</p>
         <ul style="text-align:left;">
             <li>Hashrate: 112 TH/s</li>
             <li>Consumo eléctrico: 3472 W ± 10%</li>
@@ -184,6 +164,22 @@
         <p>Súmate al equipo de minería y sé parte del proyecto.</p>
     </div>
 
+    <!-- Sección Participar al final -->
+    <div class="card fade-slide">
+        <h2>Participar</h2>
+        <p>Podés contactarnos para más información:</p>
+        <a href="https://wa.me/541170663630" target="_blank" class="whatsapp-link">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+            Contacto WhatsApp
+        </a>
+
+        <div id="paymentInfo" class="payment-methods fade-slide">
+            <p class="binance">💰 <strong>Binance:</strong> ID 801767852</p>
+            <p class="cbu">🏦 <strong>Transferencia bancaria:</strong> CBU 1430001713033086180018</p>
+            <button id="infoBtn">Cerrar información</button>
+        </div>
+    </div>
+
 </section>
 
 <footer class="fade-slide">
@@ -191,22 +187,16 @@
 </footer>
 
 <script>
-    // Métodos de pago
+    // Mostrar/ocultar métodos de pago
     const btn = document.getElementById('infoBtn');
     const paymentInfo = document.getElementById('paymentInfo');
     btn.addEventListener('click', () => {
-        if(paymentInfo.style.display === "none") {
+        if(paymentInfo.style.display === "none" || paymentInfo.style.display === "") {
             paymentInfo.style.display = "block";
-            paymentInfo.classList.remove('show');
-            setTimeout(() => paymentInfo.classList.add('show'), 50);
-            btn.textContent = "Cerrar información";
         } else {
             paymentInfo.style.display = "none";
-            btn.textContent = "Solicitar información";
         }
     });
-    btn.addEventListener('mouseover', () => { btn.style.background = 'linear-gradient(45deg, #ff6f61, #ffb347)'; });
-    btn.addEventListener('mouseout', () => { btn.style.background = 'linear-gradient(45deg, #f7931a, #ffb347)'; });
 
     // Fade-slide al cargar
     window.addEventListener('load', () => {
@@ -243,16 +233,16 @@
 
     // Contador de usuarios: empieza en 7, aumenta 1 cada 48 horas
     const userCounter = document.querySelector('.user-counter');
-    const startDate = new Date(2026,1,20); // fecha de inicio, ejemplo: 20 feb 2026
+    const startDate = new Date(2026,1,20);
     function updateUsers() {
         const now = new Date();
         const diff = now - startDate;
         const daysPassed = Math.floor(diff / (1000*60*60*24));
-        const added = Math.floor(daysPassed/2); // cada 2 días = 48h
+        const added = Math.floor(daysPassed/2);
         userCounter.textContent = 7 + added;
     }
     updateUsers();
-    setInterval(updateUsers, 3600000); // actualizar cada hora
+    setInterval(updateUsers, 3600000);
 </script>
 
 </body>
