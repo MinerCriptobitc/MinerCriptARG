@@ -5,7 +5,6 @@
     <title>MinerCriptARG1</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto+Mono&display=swap" rel="stylesheet">
     <style>
-        /* ===================== Reset y cuerpo ===================== */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: 'Roboto Mono', monospace;
@@ -16,7 +15,6 @@
         }
         a { text-decoration: none; color: inherit; }
 
-        /* ===================== Header ===================== */
         header {
             background: linear-gradient(135deg,#0d1a2a,#081021);
             padding: 50px 20px;
@@ -27,7 +25,6 @@
 
         .logo-container img { width: 220px; margin-top: 20px; border-radius: 15px; }
 
-        /* ===================== Secciones y Cards ===================== */
         section { padding: 50px 20px; }
         .card {
             background: rgba(20,35,60,0.85);
@@ -43,10 +40,8 @@
         .card:hover { transform: translateY(-10px); box-shadow: 0 0 30px rgba(0,255,255,0.5); }
         h2 { color: #00f0ff; font-family: 'Orbitron', sans-serif; margin-bottom: 15px; text-shadow: 0 0 6px #00f0ff; }
         p, li { color: #c0dfff; font-size: 16px; line-height: 1.5; }
-
         ul { text-align: left; margin-left: 20px; }
 
-        /* ===================== Botones ===================== */
         button {
             background: linear-gradient(135deg,#00f0ff,#0044ff);
             border: none;
@@ -61,7 +56,6 @@
         }
         button:hover { transform: scale(1.05); box-shadow: 0 0 15px #00f0ff; }
 
-        /* ===================== Fotos del equipo ===================== */
         .team-photos { display: flex; flex-wrap: wrap; justify-content: center; margin-top: 20px; }
         .team-photos .photo-container { position: relative; margin: 10px; }
         .team-photos img { width: 150px; border-radius: 15px; transition: 0.4s; }
@@ -74,15 +68,12 @@
         }
         .photo-container:hover .overlay { opacity: 1; }
 
-        /* ===================== ASIC Grid ===================== */
         .asic-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; justify-items: center; margin-top: 15px; }
         .asic-card { background: rgba(20,35,60,0.85); padding: 20px; border-radius: 15px; width: 100%; max-width: 300px; box-shadow: 0 0 15px rgba(0,255,255,0.2); transition: transform 0.3s; }
         .asic-card:hover { transform: translateY(-5px); box-shadow: 0 0 25px #00f0ff; }
 
-        /* ===================== Contador usuarios ===================== */
         .user-counter { font-size: 22px; font-weight: bold; color: #00f0ff; margin-top: 10px; }
 
-        /* ===================== Participar ===================== */
         .payment-methods { display: none; margin-top: 15px; text-align: left; background: rgba(20,35,60,0.85); padding: 15px; border-radius: 15px; }
         .payment-methods p { margin: 6px 0; }
         .payment-methods p.binance { color: #f7931a; }
@@ -96,8 +87,13 @@
         .whatsapp-link img { width: 25px; margin-right: 10px; }
         .whatsapp-link:hover { transform: scale(1.05); box-shadow: 0 0 15px #25D366; }
 
-        /* ===================== Lluvia de criptos ===================== */
         #cryptoRain { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-1; }
+
+        /* ===================== Formulario ===================== */
+        .form-group { text-align:left; margin: 10px 0; }
+        .form-group label { display:block; margin-bottom:5px; color:#00f0ff; }
+        .form-group input { width: 100%; padding:8px; border-radius:8px; border:1px solid #00f0ff; background: rgba(0,0,0,0.2); color:#fff; }
+        #requestForm { margin-top: 15px; }
     </style>
 </head>
 <body>
@@ -133,32 +129,17 @@
         <h2>Equipo</h2>
         <p>Conocé al equipo que hace posible MinerCriptoARG:</p>
         <div class="team-photos">
-            <div class="photo-container">
-                <img src="./persona6.jpg" alt="Miembro del equipo">
-                <div class="overlay">Miembro 6</div>
-            </div>
-            <div class="photo-container">
-                <img src="./persona7.jpg" alt="Miembro del equipo">
-                <div class="overlay">Miembro 7</div>
-            </div>
-            <div class="photo-container">
-                <img src="./persona8.jpg" alt="Miembro del equipo">
-                <div class="overlay">Miembro 8</div>
-            </div>
-            <div class="photo-container">
-                <img src="./persona9.jpg" alt="Miembro del equipo">
-                <div class="overlay">Miembro 9</div>
-            </div>
-            <div class="photo-container">
-                <img src="./persona10.jpg" alt="Miembro del equipo">
-                <div class="overlay">Miembro 10</div>
-            </div>
+            <div class="photo-container"><img src="./persona6.jpg" alt="Miembro 6"><div class="overlay">Miembro 6</div></div>
+            <div class="photo-container"><img src="./persona7.jpg" alt="Miembro 7"><div class="overlay">Miembro 7</div></div>
+            <div class="photo-container"><img src="./persona8.jpg" alt="Miembro 8"><div class="overlay">Miembro 8</div></div>
+            <div class="photo-container"><img src="./persona9.jpg" alt="Miembro 9"><div class="overlay">Miembro 9</div></div>
+            <div class="photo-container"><img src="./persona10.jpg" alt="Miembro 10"><div class="overlay">Miembro 10</div></div>
         </div>
     </div>
 
     <div class="card">
         <h2>Minero Whatsminer M30S++</h2>
-        <ul style="text-align:left;">
+        <ul>
             <li>Hashrate: 112 TH/s</li>
             <li>Consumo eléctrico: 3472 W ±10%</li>
             <li>Fuente de alimentación recomendada: 220V</li>
@@ -170,7 +151,7 @@
 
     <div class="card">
         <h2>Módulos ASIC</h2>
-        <p>Contamos con 6 equipos ASIC, distribuidos en 3 filas × 2 por fila:</p>
+        <p>6 equipos ASIC distribuidos en 3 filas × 2 por fila:</p>
         <div class="asic-grid">
             <div class="asic-card">ASIC 1</div>
             <div class="asic-card">ASIC 2</div>
@@ -187,10 +168,23 @@
         <p>Súmate al equipo de minería y sé parte del proyecto.</p>
     </div>
 
-    <!-- Participar al final -->
     <div class="card">
-        <h2>Participar</h2>
-        <p>Contacto directo:</p>
+        <h2>Solicitar información</h2>
+        <form id="requestForm">
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" name="nombre" required>
+            </div>
+            <div class="form-group">
+                <label>Apellido</label>
+                <input type="text" name="apellido" required>
+            </div>
+            <div class="form-group">
+                <label>Email o Celular</label>
+                <input type="text" name="contacto" required>
+            </div>
+            <button type="submit">Enviar</button>
+        </form>
         <a href="https://wa.me/541170663630" target="_blank" class="whatsapp-link">
             <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
             Contacto WhatsApp
@@ -206,7 +200,7 @@
 </section>
 
 <footer>
-    ©️ 2026 Ángel Cripto Mining - Proyecto privado independiente
+    ©️ 2026 MinerCripARG - Proyecto privado independiente
 </footer>
 
 <script>
@@ -217,13 +211,21 @@
         paymentInfo.style.display = (paymentInfo.style.display === "block") ? "none" : "block";
     });
 
-    // Lluvia de criptos
+    // Envío del formulario
+    document.getElementById('requestForm').addEventListener('submit', function(e){
+        e.preventDefault();
+        paymentInfo.style.display = "block";
+        alert("Gracias, tu información ha sido enviada. Se muestran los métodos de pago.");
+        this.reset();
+    });
+
+    // Lluvia de criptos azul eléctrico
     const canvas = document.getElementById('cryptoRain');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     const cryptos = ['₿','Ξ','Ł','₮','Ƀ'];
-    const fontSize = 22;
+    const fontSize = 28;
     const columns = Math.floor(canvas.width / fontSize);
     const drops = Array(columns).fill(1);
     function draw() {
