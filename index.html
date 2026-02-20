@@ -22,7 +22,7 @@ header {
     padding: 50px 20px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.5);
 }
-header h1 { font-family: 'Orbitron', sans-serif; font-size: 42px; color: #00f0ff; margin-bottom: 10px; text-shadow: 0 0 8px #00f0ff; }
+header h1 { font-family: 'Orbitron', sans-serif; font-size: 42px; color: #00f0ff; margin-bottom: 10px; text-shadow: 0 0 8px #00f0ff; animation: glowTitle 2.5s infinite alternate; }
 header p { font-size: 18px; color: #a0c0ff; }
 
 .logo-container img { width: 220px; margin-top: 20px; border-radius: 15px; }
@@ -41,9 +41,21 @@ section { padding: 50px 20px; }
     transition: transform 0.4s, box-shadow 0.4s;
 }
 .card:hover { transform: translateY(-10px); box-shadow: 0 0 35px rgba(0,255,255,0.6); }
-h2 { color: #00f0ff; font-family: 'Orbitron', sans-serif; margin-bottom: 15px; text-shadow: 0 0 6px #00f0ff; }
+h2 { color: #00f0ff; font-family: 'Orbitron', sans-serif; margin-bottom: 15px; text-shadow: 0 0 6px #00f0ff; animation: glowTitle 3s infinite alternate; }
 p, li { color: #c0dfff; font-size: 16px; line-height: 1.5; }
 ul, ol { text-align: left; margin-left: 20px; }
+
+/* ===================== Glow animation ===================== */
+@keyframes glowTitle {
+    0% { text-shadow: 0 0 5px #00f0ff, 0 0 10px #00f0ff; }
+    50% { text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff; }
+    100% { text-shadow: 0 0 7px #00f0ff, 0 0 15px #00f0ff; }
+}
+@keyframes glowButton {
+    0% { box-shadow: 0 0 10px #00f0ff; }
+    50% { box-shadow: 0 0 20px #00f0ff; }
+    100% { box-shadow: 0 0 12px #00f0ff; }
+}
 
 /* ===================== Botones ===================== */
 button {
@@ -57,8 +69,9 @@ button {
     color: #fff;
     transition: all 0.3s ease;
     margin-top: 15px;
+    animation: glowButton 2.5s infinite alternate;
 }
-button:hover { transform: scale(1.05); box-shadow: 0 0 20px #00f0ff; }
+button:hover { transform: scale(1.05); box-shadow: 0 0 25px #00f0ff; }
 
 /* ===================== Fotos del equipo ===================== */
 .team-photos { display: flex; flex-wrap: wrap; justify-content: center; margin-top: 20px; }
@@ -187,7 +200,7 @@ button:hover { transform: scale(1.05); box-shadow: 0 0 20px #00f0ff; }
 </div>
 </div>
 
-<!-- ===================== Nueva sección: Cómo minar ===================== -->
+<!-- ===================== Cómo minar ===================== -->
 <div class="card">
 <h2>Cómo recibir pagos y minar correctamente</h2>
 <p>Necesitas una wallet compatible con la moneda que minas para recibir los pagos. Para Bitcoin (BTC) recomendamos:</p>
@@ -237,29 +250,50 @@ btn.addEventListener('click', () => {
     paymentInfo.style.display = (paymentInfo.style.display === "block") ? "none" : "block";
 });
 
-// ===================== Lluvia de criptos =====================
+// ===================== Lluvia de criptos 3D con colores =====================
 const canvas = document.getElementById('cryptoRain');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-const cryptos = ['₿','Ξ','Ł','₮','Ƀ'];
+
+const cryptos = [
+    {symbol:'₿', color:'#f2b01e'}, // BTC dorado
+    {symbol:'Ξ', color:'#3c7dd9'}, // ETH azul
+    {symbol:'Ł', color:'#999999'}, // LTC gris
+    {symbol:'₮', color:'#25d366'}, // USDT verde
+    {symbol:'Ƀ', color:'#00f0ff'}  // BCH cian
+];
+
 const fontSize = 22;
-const columns = Math.floor(canvas.width / fontSize);
-const drops = Array(columns).fill(1);
+let columns = Math.floor(canvas.width / fontSize);
+let drops = Array(columns).fill().map(_ => ({y:Math.random()*canvas.height, speed:Math.random()*2+1, symbolIndex:Math.floor(Math.random()*cryptos.length)}));
+
 function draw() {
-    ctx.fillStyle = 'rgba(11,15,30,0.04)';
+    ctx.fillStyle = 'rgba(11,15,30,0.05)';
     ctx.fillRect(0,0,canvas.width,canvas.height);
-    ctx.fillStyle = '#00f0ff';
-    ctx.font = fontSize+'px monospace';
+
     for(let i=0;i<drops.length;i++){
-        const text = cryptos[Math.floor(Math.random()*cryptos.length)];
-        ctx.fillText(text,i*fontSize,drops[i]*fontSize);
-        if(drops[i]*fontSize > canvas.height && Math.random()>0.975) drops[i]=0;
-        drops[i]++;
+        const drop = drops[i];
+        const crypto = cryptos[drop.symbolIndex];
+        ctx.fillStyle = crypto.color;
+        ctx.font = fontSize + 'px monospace';
+        ctx.fillText(crypto.symbol,i*fontSize,drop.y);
+
+        drop.y += drop.speed;
+        if(drop.y > canvas.height && Math.random()>0.975){
+            drop.y = 0;
+            drop.speed = Math.random()*2+1;
+            drop.symbolIndex = Math.floor(Math.random()*cryptos.length);
+        }
     }
 }
-setInterval(draw,120);
-window.addEventListener('resize',()=>{ canvas.width=window.innerWidth; canvas.height=window.innerHeight; });
+setInterval(draw,100);
+window.addEventListener('resize',()=>{
+    canvas.width=window.innerWidth;
+    canvas.height=window.innerHeight;
+    columns = Math.floor(canvas.width / fontSize);
+    drops = Array(columns).fill().map(_ => ({y:Math.random()*canvas.height, speed:Math.random()*2+1, symbolIndex:Math.floor(Math.random()*cryptos.length)}));
+});
 
 // ===================== Contador usuarios =====================
 const userCounter = document.querySelector('.user-counter');
