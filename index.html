@@ -5,7 +5,10 @@
 <title>MinerCriptARG1</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto+Mono&display=swap" rel="stylesheet">
 <style>
+/* Reset básico */
 * { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Body y fondo */
 body {
     font-family: 'Roboto Mono', monospace;
     background: #0b0f1e;
@@ -14,8 +17,17 @@ body {
     overflow-x: hidden;
     position: relative;
 }
-a { text-decoration: none; color: inherit; }
 
+/* Canvas para lluvia */
+#cryptoRain {
+    position: fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    z-index: 0; /* detrás de todo */
+    background: #0b0f1e;
+}
+
+/* Encabezado */
 header {
     background: linear-gradient(135deg,#0d1a2a,#081021);
     padding: 50px 20px;
@@ -23,12 +35,24 @@ header {
     position: relative;
     z-index: 2;
 }
-header h1 { font-family: 'Orbitron', sans-serif; font-size: 42px; color: #00f0ff; margin-bottom: 10px; text-shadow: 0 0 8px #00f0ff; animation: glowTitle 2.5s infinite alternate; }
+header h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 42px;
+    color: #00f0ff;
+    margin-bottom: 10px;
+    text-shadow: 0 0 8px #00f0ff;
+}
 header p { font-size: 18px; color: #a0c0ff; }
 
-.logo-container { position: relative; z-index:2; }
-.logo-container img { width: 220px; margin-top: 20px; border-radius: 15px; }
+/* Logo */
+.logo-container {
+    position: relative;
+    z-index: 2;
+    margin-top: 20px;
+}
+.logo-container img { width: 220px; border-radius: 15px; }
 
+/* Secciones y cards */
 section { padding: 50px 20px; position: relative; z-index: 2; }
 .card {
     background: rgba(20,35,60,0.85);
@@ -42,21 +66,12 @@ section { padding: 50px 20px; position: relative; z-index: 2; }
     transition: transform 0.4s, box-shadow 0.4s;
 }
 .card:hover { transform: translateY(-10px); box-shadow: 0 0 35px rgba(0,255,255,0.6); }
-h2 { color: #00f0ff; font-family: 'Orbitron', sans-serif; margin-bottom: 15px; text-shadow: 0 0 6px #00f0ff; animation: glowTitle 3s infinite alternate; }
+
+h2 { color: #00f0ff; font-family: 'Orbitron', sans-serif; margin-bottom: 15px; }
 p, li { color: #c0dfff; font-size: 16px; line-height: 1.5; }
 ul, ol { text-align: left; margin-left: 20px; }
 
-@keyframes glowTitle {
-    0% { text-shadow: 0 0 5px #00f0ff, 0 0 10px #00f0ff; }
-    50% { text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff; }
-    100% { text-shadow: 0 0 7px #00f0ff, 0 0 15px #00f0ff; }
-}
-@keyframes glowButton {
-    0% { box-shadow: 0 0 10px #00f0ff; }
-    50% { box-shadow: 0 0 20px #00f0ff; }
-    100% { box-shadow: 0 0 12px #00f0ff; }
-}
-
+/* Botones */
 button {
     background: linear-gradient(135deg,#00f0ff,#0044ff);
     border: none;
@@ -68,11 +83,11 @@ button {
     color: #fff;
     transition: all 0.3s ease;
     margin-top: 15px;
-    animation: glowButton 2.5s infinite alternate;
 }
 button:hover { transform: scale(1.05); box-shadow: 0 0 25px #00f0ff; }
 
-.team-photos { display: flex; flex-wrap: wrap; justify-content: center; margin-top: 20px; position: relative; z-index:2; }
+/* Fotos equipo */
+.team-photos { display: flex; flex-wrap: wrap; justify-content: center; margin-top: 20px; }
 .photo-container { position: relative; margin: 10px; opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
 .photo-container.show { opacity: 1; transform: translateY(0); }
 .team-photos img { width: 150px; border-radius: 15px; transition: 0.4s; }
@@ -85,18 +100,28 @@ button:hover { transform: scale(1.05); box-shadow: 0 0 25px #00f0ff; }
 }
 .photo-container:hover .overlay { opacity: 1; }
 
+/* ASIC Grid */
 .asic-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; justify-items: center; margin-top: 15px; }
 .asic-card { background: rgba(20,35,60,0.85); padding: 20px; border-radius: 15px; width: 100%; max-width: 300px; box-shadow: 0 0 15px rgba(0,255,255,0.2); transition: transform 0.3s; }
 .asic-card:hover { transform: translateY(-5px); box-shadow: 0 0 25px #00f0ff; }
 
+/* Contador usuarios */
 .user-counter { font-size: 22px; font-weight: bold; color: #00f0ff; margin-top: 10px; }
 
+/* Medios de pago */
 .payment-methods { display: none; margin-top: 15px; text-align: left; background: rgba(20,35,60,0.85); padding: 15px; border-radius: 15px; }
 .payment-methods p { margin: 6px 0; }
 .payment-methods p.binance { color: #f7931a; }
 .payment-methods p.cbu { color: #4caf50; }
 
-#cryptoRain { position: fixed; top:0; left:0; width:100%; height:100%; z-index:1; background: #0b0f1e; }
+/* WhatsApp */
+.whatsapp-link {
+    display: inline-flex; align-items: center; background: #25D366;
+    color: white; padding: 10px 20px; border-radius: 30px; font-weight: bold;
+    margin-top: 15px; transition: 0.3s;
+}
+.whatsapp-link img { width: 25px; margin-right: 10px; }
+.whatsapp-link:hover { transform: scale(1.05); box-shadow: 0 0 15px #25D366; }
 </style>
 </head>
 <body>
@@ -114,36 +139,19 @@ button:hover { transform: scale(1.05); box-shadow: 0 0 25px #00f0ff; }
 
 <section>
 <div class="card">
-    <h2>¿Qué hacemos?</h2>
-    <p>Operamos equipos de minería de Bitcoin con infraestructura propia en Argentina.</p>
-</div>
-
-<div class="card">
-    <h2>Transparencia</h2>
-    <p>Proyecto en etapa de expansión. La minería de criptomonedas implica resolver problemas matemáticos complejos, validando y asegurando transacciones en blockchain sin intermediarios, evitando el doble gasto y creando nuevas monedas como recompensa.</p>
-</div>
-
-<div class="card">
-    <h2>Nuestra visión</h2>
-    <p>Convertirnos en la infraestructura privada de minería de Bitcoin más sólida y confiable de Argentina.</p>
-</div>
-
-<div class="card">
-<h2>Equipo</h2>
-<p>Conocé al equipo que hace posible MinerCriptoARG:</p>
-<div class="team-photos">
-    <div class="photo-container"><img src="./persona6.jpg" alt=""><div class="overlay">Miembro 6</div></div>
-    <div class="photo-container"><img src="./persona7.jpg" alt=""><div class="overlay">Miembro 7</div></div>
-    <div class="photo-container"><img src="./persona8.jpg" alt=""><div class="overlay">Miembro 8</div></div>
-    <div class="photo-container"><img src="./persona9.jpg" alt=""><div class="overlay">Miembro 9</div></div>
-    <div class="photo-container"><img src="./persona10.jpg" alt=""><div class="overlay">Miembro 10</div></div>
-</div>
+    <h2>Equipo</h2>
+    <div class="team-photos">
+        <div class="photo-container"><img src="./persona6.jpg"><div class="overlay">Miembro 6</div></div>
+        <div class="photo-container"><img src="./persona7.jpg"><div class="overlay">Miembro 7</div></div>
+        <div class="photo-container"><img src="./persona8.jpg"><div class="overlay">Miembro 8</div></div>
+        <div class="photo-container"><img src="./persona9.jpg"><div class="overlay">Miembro 9</div></div>
+        <div class="photo-container"><img src="./persona10.jpg"><div class="overlay">Miembro 10</div></div>
+    </div>
 </div>
 
 <!-- Participar -->
 <div class="card">
-<h2>Participar y unirse al equipo</h2>
-<p>Completá tus datos y te enviaremos información de inversión:</p>
+<h2>Participar</h2>
 <form id="joinForm">
     <input type="text" id="firstName" placeholder="Nombre" required style="padding:10px; width:70%; margin:5px 0; border-radius:10px; border:none;">
     <br>
@@ -190,7 +198,7 @@ joinForm.addEventListener('submit', function(e){
     }
 });
 
-// Lluvia de criptos más grande y detrás de todo
+// Lluvia de criptos
 const canvas = document.getElementById('cryptoRain');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
@@ -205,6 +213,7 @@ const cryptos = [
 const fontSize = 32;
 let columns = Math.floor(canvas.width / fontSize);
 let drops = Array(columns).fill().map(_ => ({y:Math.random()*canvas.height, speed:Math.random()*2+1, symbolIndex:Math.floor(Math.random()*cryptos.length)}));
+
 function draw() {
     ctx.fillStyle = 'rgba(11,15,30,0.1)';
     ctx.fillRect(0,0,canvas.width,canvas.height);
