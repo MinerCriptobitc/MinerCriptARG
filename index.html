@@ -127,6 +127,7 @@ button:hover { transform: scale(1.05); box-shadow: 0 0 25px #00f0ff; }
 </header>
 
 <section>
+<!-- Cards principales -->
 <div class="card">
     <h2>¿Qué hacemos?</h2>
     <p>Operamos equipos de minería de Bitcoin con infraestructura propia en Argentina.</p>
@@ -142,6 +143,7 @@ button:hover { transform: scale(1.05); box-shadow: 0 0 25px #00f0ff; }
     <p>Convertirnos en la infraestructura privada de minería de Bitcoin más sólida y confiable de Argentina.</p>
 </div>
 
+<!-- Equipo -->
 <div class="card">
 <h2>Equipo</h2>
 <p>Conocé al equipo que hace posible MinerCriptoARG:</p>
@@ -154,6 +156,7 @@ button:hover { transform: scale(1.05); box-shadow: 0 0 25px #00f0ff; }
 </div>
 </div>
 
+<!-- Minero Whatsminer M30S++ -->
 <div class="card">
 <h2>Minero Whatsminer M30S++</h2>
 <ul style="text-align:left;">
@@ -166,6 +169,7 @@ button:hover { transform: scale(1.05); box-shadow: 0 0 25px #00f0ff; }
 </ul>
 </div>
 
+<!-- Módulos ASIC -->
 <div class="card">
 <h2>Módulos ASIC</h2>
 <p>Contamos con 6 equipos ASIC, distribuidos en 3 filas × 2 por fila:</p>
@@ -179,28 +183,37 @@ button:hover { transform: scale(1.05); box-shadow: 0 0 25px #00f0ff; }
 </div>
 </div>
 
+<!-- Usuarios registrados -->
 <div class="card">
 <h2>Usuarios registrados</h2>
 <p class="user-counter">7</p>
 <p>Súmate al equipo de minería y sé parte del proyecto.</p>
 </div>
 
+<!-- Participar -->
 <div class="card">
-<h2>Participar</h2>
-<p>Contacto directo:</p>
-<a href="https://wa.me/541170663630" target="_blank" class="whatsapp-link">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-    Contacto WhatsApp
-</a>
+<h2>Participar y unirse al equipo</h2>
+<p>Completá tus datos y te enviaremos información de inversión:</p>
+
+<form id="joinForm">
+    <input type="text" id="firstName" placeholder="Nombre" required style="padding:10px; width:70%; margin:5px 0; border-radius:10px; border:none;">
+    <br>
+    <input type="text" id="lastName" placeholder="Apellido" required style="padding:10px; width:70%; margin:5px 0; border-radius:10px; border:none;">
+    <br>
+    <input type="text" id="contact" placeholder="Celular o Mail" required style="padding:10px; width:70%; margin:5px 0; border-radius:10px; border:none;">
+    <br>
+    <button type="submit">Enviar datos</button>
+</form>
 
 <div id="paymentInfo" class="payment-methods">
 <p class="binance">💰 <strong>Binance:</strong> ID 801767852</p>
 <p class="cbu">🏦 <strong>Transferencia bancaria:</strong> CBU 1430001713033086180018</p>
-<button id="infoBtn">Cerrar información</button>
-</div>
 </div>
 
-<!-- ===================== Cómo minar ===================== -->
+<p id="formMsg" style="margin-top:10px; color:#00f0ff;"></p>
+</div>
+
+<!-- Cómo minar -->
 <div class="card">
 <h2>Cómo recibir pagos y minar correctamente</h2>
 <p>Necesitas una wallet compatible con la moneda que minas para recibir los pagos. Para Bitcoin (BTC) recomendamos:</p>
@@ -239,29 +252,49 @@ button:hover { transform: scale(1.05); box-shadow: 0 0 25px #00f0ff; }
 </footer>
 
 <script>
-// ===================== Fade-in secuencial fotos =====================
+// ===================== Fade-in fotos =====================
 const photos = document.querySelectorAll('.photo-container');
 photos.forEach((photo,i)=>setTimeout(()=>photo.classList.add('show'), i*300));
 
-// ===================== Métodos de pago =====================
-const btn = document.getElementById('infoBtn');
-const paymentInfo = document.getElementById('paymentInfo');
-btn.addEventListener('click', () => {
-    paymentInfo.style.display = (paymentInfo.style.display === "block") ? "none" : "block";
+// ===================== Formulario Participar =====================
+const joinForm = document.getElementById('joinForm');
+const formMsg = document.getElementById('formMsg');
+const paymentDiv = document.getElementById('paymentInfo');
+
+paymentDiv.style.display = "none"; // ocultar al inicio
+
+joinForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
+    const contact = document.getElementById('contact').value.trim();
+
+    if(firstName && lastName && contact){
+        // Abrir WhatsApp con mensaje prellenado simulando envío a tu número
+        const message = encodeURIComponent(Quiero unirme al equipo:\nNombre: ${firstName}\nApellido: ${lastName}\nContacto: ${contact});
+        window.open(https://wa.me/541170663630?text=${message}, "_blank");
+
+        // Mostrar medios de pago
+        paymentDiv.style.display = "block";
+        formMsg.textContent = "Tus datos fueron enviados. Aquí podés ver los medios de pago:";
+        joinForm.reset();
+    } else {
+        formMsg.textContent = "Por favor completá todos los campos.";
+    }
 });
 
-// ===================== Lluvia de criptos 3D con colores =====================
+// ===================== Lluvia de criptos =====================
 const canvas = document.getElementById('cryptoRain');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 const cryptos = [
-    {symbol:'₿', color:'#f2b01e'}, // BTC dorado
-    {symbol:'Ξ', color:'#3c7dd9'}, // ETH azul
-    {symbol:'Ł', color:'#999999'}, // LTC gris
-    {symbol:'₮', color:'#25d366'}, // USDT verde
-    {symbol:'Ƀ', color:'#00f0ff'}  // BCH cian
+    {symbol:'₿', color:'#f2b01e'},
+    {symbol:'Ξ', color:'#3c7dd9'},
+    {symbol:'Ł', color:'#999999'},
+    {symbol:'₮', color:'#25d366'},
+    {symbol:'Ƀ', color:'#00f0ff'}
 ];
 
 const fontSize = 22;
@@ -271,14 +304,12 @@ let drops = Array(columns).fill().map(_ => ({y:Math.random()*canvas.height, spee
 function draw() {
     ctx.fillStyle = 'rgba(11,15,30,0.05)';
     ctx.fillRect(0,0,canvas.width,canvas.height);
-
     for(let i=0;i<drops.length;i++){
         const drop = drops[i];
         const crypto = cryptos[drop.symbolIndex];
         ctx.fillStyle = crypto.color;
         ctx.font = fontSize + 'px monospace';
         ctx.fillText(crypto.symbol,i*fontSize,drop.y);
-
         drop.y += drop.speed;
         if(drop.y > canvas.height && Math.random()>0.975){
             drop.y = 0;
