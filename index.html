@@ -7,318 +7,62 @@
 
 <style>
  /* ===== MINING STATS ===== */
-.mining-stats{
-  margin-top:25px;
-}
-
-.progress-container{
-  width:100%;
-  height:20px;
-  background:rgba(255,255,255,0.1);
-  border-radius:20px;
-  overflow:hidden;
-  margin:20px 0;
-}
-
-.progress-bar{
-  height:100%;
-  width:0%;
-  background:linear-gradient(90deg,#00f0ff,#0044ff);
-  border-radius:20px;
-  transition:width 0.5s ease;
-}
-
-.cycle-text{
-  font-size:16px;
-  margin-bottom:20px;
-  color:#00f0ff;
-  font-weight:bold;
-}
-
-#miniChart{
-  width:100%;
-  height:120px;
-  background:rgba(0,0,0,0.4);
-  border-radius:15px;
-}
-
+.mining-stats{margin-top:25px}
+.progress-container{width:100%;height:20px;background:rgba(255,255,255,0.1);border-radius:20px;overflow:hidden;margin:20px 0}
+.progress-bar{height:100%;width:0%;background:linear-gradient(90deg,#00f0ff,#0044ff);border-radius:20px;transition:width 0.5s ease}
+.cycle-text{font-size:16px;margin-bottom:20px;color:#00f0ff;font-weight:bold}
+#miniChart{width:100%;height:120px;background:rgba(0,0,0,0.4);border-radius:15px}
 *{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family:'Roboto Mono',monospace;
-  background:#0b0f1e;
-  color:#e0e0e0;
-  text-align:center;
-  overflow-x:hidden;
-}
+body{font-family:'Roboto Mono',monospace;background:#0b0f1e;color:#e0e0e0;text-align:center;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
-
-header{
-  background:linear-gradient(135deg,#0d1a2a,#081021);
-  padding:50px 20px;
-  box-shadow:0 5px 20px rgba(0,0,0,0.5);
-}
-header h1{
-  font-family:'Orbitron',sans-serif;
-  font-size:42px;
-  color:#00f0ff;
-  margin-bottom:10px;
-  text-shadow:0 0 8px #00f0ff;
-}
+header{background:linear-gradient(135deg,#0d1a2a,#081021);padding:50px 20px;box-shadow:0 5px 20px rgba(0,0,0,0.5)}
+header h1{font-family:'Orbitron',sans-serif;font-size:42px;color:#00f0ff;margin-bottom:10px;text-shadow:0 0 8px #00f0ff}
 header p{font-size:18px;color:#a0c0ff}
-
 .logo-container img{width:220px;margin-top:20px;border-radius:15px}
-
 section{padding:50px 20px}
-.card{
-  background:rgba(20,35,60,0.85);
-  margin:25px auto;
-  padding:30px;
-  border-radius:20px;
-  width:80%;
-  max-width:750px;
-  backdrop-filter:blur(8px);
-  box-shadow:0 0 20px rgba(0,255,255,0.2);
-  transition:0.4s;
-}
-.card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 0 30px rgba(0,255,255,0.5);
-}
-
-h2{
-  color:#00f0ff;
-  font-family:'Orbitron',sans-serif;
-  margin-bottom:15px;
-  text-shadow:0 0 6px #00f0ff;
-}
+.card{background:rgba(20,35,60,0.85);margin:25px auto;padding:30px;border-radius:20px;width:80%;max-width:750px;backdrop-filter:blur(8px);box-shadow:0 0 20px rgba(0,255,255,0.2);transition:0.4s}
+.card:hover{transform:translateY(-10px);box-shadow:0 0 30px rgba(0,255,255,0.5)}
+h2{color:#00f0ff;font-family:'Orbitron',sans-serif;margin-bottom:15px;text-shadow:0 0 6px #00f0ff}
 p,li{color:#c0dfff;font-size:16px;line-height:1.5}
 ul{text-align:left;margin-left:20px}
-
-button{
-  background:linear-gradient(135deg,#00f0ff,#0044ff);
-  border:none;
-  padding:12px 30px;
-  font-size:16px;
-  border-radius:30px;
-  cursor:pointer;
-  font-weight:bold;
-  color:#fff;
-  transition:0.3s;
-  margin-top:15px;
-}
-button:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 15px #00f0ff;
-}
+button{background:linear-gradient(135deg,#00f0ff,#0044ff);border:none;padding:12px 30px;font-size:16px;border-radius:30px;cursor:pointer;font-weight:bold;color:#fff;transition:0.3s;margin-top:15px}
+button:hover{transform:scale(1.05);box-shadow:0 0 15px #00f0ff}
 
 /* BTC */
-.btc-counter{
-  font-size:36px;
-  font-weight:bold;
-  color:#00ffcc;
-  margin-top:10px;
-  text-shadow:0 0 12px #00ffcc;
-}
-.btc-logo{
-  width:80px;
-  animation:pulse 2s infinite;
-}
-@keyframes pulse{
-  0%{transform:scale(1);filter:drop-shadow(0 0 5px #f7931a)}
-  50%{transform:scale(1.1);filter:drop-shadow(0 0 20px #f7931a)}
-  100%{transform:scale(1);filter:drop-shadow(0 0 5px #f7931a)}
-}
+.btc-counter{font-size:36px;font-weight:bold;color:#00ffcc;margin-top:10px;text-shadow:0 0 12px #00ffcc}
+.btc-logo{width:80px;animation:pulse 2s infinite}
+@keyframes pulse{0%{transform:scale(1);filter:drop-shadow(0 0 5px #f7931a)}50%{transform:scale(1.1);filter:drop-shadow(0 0 20px #f7931a)}100%{transform:scale(1);filter:drop-shadow(0 0 5px #f7931a)}}
 
 /* ===== WHATSAPP FLOAT PRO ===== */
-.whatsapp-float{
-  position:fixed;
-  bottom:25px;
-  right:25px;
-  width:70px;
-  height:70px;
-  background:#25D366;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 0 25px rgba(0,0,0,0.4);
-  z-index:9999;
-  cursor:pointer;
-  animation:pulseWhatsapp 2s infinite;
-  transition:0.3s;
-}
-
-.whatsapp-float:hover{
-  transform:scale(1.1);
-  box-shadow:0 0 30px #25D366;
-}
-
-.whatsapp-float img{
-  width:38px;
-  height:38px;
-}
-
-@keyframes pulseWhatsapp{
-  0%{box-shadow:0 0 0 0 rgba(37,211,102,0.7);}
-  70%{box-shadow:0 0 0 20px rgba(37,211,102,0);}
-  100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}
-}
-
-/* Tooltip */
-.whatsapp-tooltip{
-  position:absolute;
-  right:85px;
-  background:#111;
-  color:#fff;
-  padding:8px 12px;
-  border-radius:8px;
-  font-size:14px;
-  white-space:nowrap;
-  opacity:0;
-  transform:translateY(10px);
-  transition:0.3s;
-}
-
-.whatsapp-float:hover .whatsapp-tooltip{
-  opacity:1;
-  transform:translateY(0);
-}
+.whatsapp-float{position:fixed;bottom:25px;right:25px;width:70px;height:70px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 25px rgba(0,0,0,0.4);z-index:9999;cursor:pointer;animation:pulseWhatsapp 2s infinite;transition:0.3s}
+.whatsapp-float:hover{transform:scale(1.1);box-shadow:0 0 30px #25D366}
+.whatsapp-float img{width:38px;height:38px}
+@keyframes pulseWhatsapp{0%{box-shadow:0 0 0 0 rgba(37,211,102,0.7);}70%{box-shadow:0 0 0 20px rgba(37,211,102,0);}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+.whatsapp-tooltip{position:absolute;right:85px;background:#111;color:#fff;padding:8px 12px;border-radius:8px;font-size:14px;white-space:nowrap;opacity:0;transform:translateY(10px);transition:0.3s}
+.whatsapp-float:hover .whatsapp-tooltip{opacity:1;transform:translateY(0)}
 
 /* ===== TEAM PREMIUM STYLE ===== */
-.team-photos{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:30px;
-  margin-top:30px;
-  animation:fadeInTeam 1.2s ease forwards;
-}
-
-@keyframes fadeInTeam{
-  from{opacity:0; transform:translateY(20px);}
-  to{opacity:1; transform:translateY(0);}
-}
-
-.photo-container{
-  position:relative;
-  width:170px;
-  height:170px;
-  border-radius:50%;
-  padding:5px;
-  background:linear-gradient(135deg,#00f0ff,#0044ff,#00f0ff);
-  background-size:300% 300%;
-  animation:borderGlow 4s ease infinite;
-  box-shadow:0 0 30px rgba(0,240,255,0.3);
-  transition:0.4s;
-}
-
-@keyframes borderGlow{
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
-}
-
-.photo-container:hover{
-  transform:scale(1.08);
-  box-shadow:0 0 40px #00f0ff;
-}
-
-.photo-container img{
-  width:100%;
-  height:100%;
-  border-radius:50%;
-  object-fit:cover;
-  display:block;
-}
-
-.overlay{
-  position:absolute;
-  bottom:-40px;
-  left:50%;
-  transform:translateX(-50%);
-  background:rgba(0,0,0,0.85);
-  color:#00f0ff;
-  padding:6px 12px;
-  border-radius:20px;
-  font-size:13px;
-  opacity:0;
-  transition:0.4s;
-  white-space:nowrap;
-}
-
-.photo-container:hover .overlay{
-  bottom:-30px;
-  opacity:1;
-}
+.team-photos{display:flex;flex-wrap:wrap;justify-content:center;gap:30px;margin-top:30px;animation:fadeInTeam 1.2s ease forwards}
+@keyframes fadeInTeam{from{opacity:0; transform:translateY(20px);}to{opacity:1; transform:translateY(0)}}
+.photo-container{position:relative;width:170px;height:170px;border-radius:50%;padding:5px;background:linear-gradient(135deg,#00f0ff,#0044ff,#00f0ff);background-size:300% 300%;animation:borderGlow 4s ease infinite;box-shadow:0 0 30px rgba(0,240,255,0.3);transition:0.4s}
+@keyframes borderGlow{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.photo-container:hover{transform:scale(1.08);box-shadow:0 0 40px #00f0ff}
+.photo-container img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block}
+.overlay{position:absolute;bottom:-40px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.85);color:#00f0ff;padding:6px 12px;border-radius:20px;font-size:13px;opacity:0;transition:0.4s;white-space:nowrap}
+.photo-container:hover .overlay{bottom:-30px;opacity:1}
 
 /* Mobile */
-@media(max-width:768px){
-  .photo-container{
-    width:130px;
-    height:130px;
-  }
-}
+@media(max-width:768px){.photo-container{width:130px;height:130px}}
 
-.asic-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:20px;
-  justify-items:center;
-  margin-top:15px;
-}
-.asic-card{
-  background:rgba(20,35,60,0.85);
-  padding:20px;
-  border-radius:15px;
-  width:100%;
-  max-width:300px;
-  box-shadow:0 0 15px rgba(0,255,255,0.2);
-  transition:0.3s;
-}
-.asic-card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 0 25px #00f0ff;
-}
-
-.user-counter{
-  font-size:22px;
-  font-weight:bold;
-  color:#00f0ff;
-  margin-top:10px;
-}
-
-.payment-methods{
-  display:none;
-  margin-top:15px;
-  text-align:left;
-  background:rgba(20,35,60,0.85);
-  padding:15px;
-  border-radius:15px;
-}
-
-.whatsapp-link{
-  display:inline-flex;
-  align-items:center;
-  background:#25D366;
-  color:white;
-  padding:10px 20px;
-  border-radius:30px;
-  font-weight:bold;
-  margin-top:15px;
-  transition:0.3s;
-}
+.asic-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;justify-items:center;margin-top:15px}
+.asic-card{background:rgba(20,35,60,0.85);padding:20px;border-radius:15px;width:100%;max-width:300px;box-shadow:0 0 15px rgba(0,255,255,0.2);transition:0.3s}
+.asic-card:hover{transform:translateY(-5px);box-shadow:0 0 25px #00f0ff}
+.user-counter{font-size:22px;font-weight:bold;color:#00f0ff;margin-top:10px}
+.payment-methods{display:none;margin-top:15px;text-align:left;background:rgba(20,35,60,0.85);padding:15px;border-radius:15px}
+.whatsapp-link{display:inline-flex;align-items:center;background:#25D366;color:white;padding:10px 20px;border-radius:30px;font-weight:bold;margin-top:15px;transition:0.3s}
 .whatsapp-link img{width:25px;margin-right:10px}
-.whatsapp-link:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 15px #25D366;
-}
-
-#cryptoRain{
-  position:fixed;
-  top:0;left:0;
-  width:100%;height:100%;
-  z-index:-1;
-}
+.whatsapp-link:hover{transform:scale(1.05);box-shadow:0 0 15px #25D366}
+#cryptoRain{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1}
 </style>
 </head>
 
@@ -337,110 +81,89 @@ button:hover{
 
 <section>
 
-  <div class="card">
-    <img class="btc-logo" src="https://upload.wikimedia.org/wikipedia/commons/4/46/Bitcoin.svg">
-    <h2>BTC Minados en USD</h2>
-    <div class="btc-counter" id="btcAmount">$3,927.00</div>
-    <p>Actualización progresiva automática</p>
-  </div>
+<div class="card">
+<img class="btc-logo" src="https://upload.wikimedia.org/wikipedia/commons/4/46/Bitcoin.svg">
+<h2>BTC Minados en USD</h2>
+<div class="btc-counter" id="btcAmount">$3,927.00</div>
+<p>Actualización progresiva automática</p>
+</div>
 
-  <div class="card">
-    <h2>¿Qué hacemos?</h2>
-    <p>Operamos equipos de minería de Bitcoin con infraestructura propia en Argentina.</p>
-  </div>
+<div class="card">
+<h2>¿Qué hacemos?</h2>
+<p>Operamos equipos de minería de Bitcoin con infraestructura propia en Argentina.</p>
+</div>
 
-  <section class="crypto-info">
-    <div class="card">
-      <h2>¿Cómo funciona el criptominado?</h2>
+<section class="crypto-info">
+<div class="card">
+<h2>¿Cómo funciona el criptominado?</h2>
+<p>El criptominado es el proceso mediante el cual se validan y registran transacciones dentro de la red blockchain. Los equipos de minería utilizan potencia computacional para resolver complejos algoritmos matemáticos que permiten confirmar bloques de información.</p>
+<p>Cada vez que se valida un bloque, la red recompensa al minero con una fracción de criptomoneda. Este proceso funciona las 24 horas del día, los 7 días de la semana, de manera automática.</p>
+<p>En promedio, dependiendo de la potencia del equipo y la dificultad de la red, el rendimiento estimado se consolida en ciclos aproximados de <strong>30 días</strong>, donde se refleja el acumulado generado por la actividad continua.</p>
+</div>
+</section>
 
-      <p>
-        El criptominado es el proceso mediante el cual se validan y registran transacciones dentro de la red blockchain.
-        Los equipos de minería utilizan potencia computacional para resolver complejos algoritmos matemáticos
-        que permiten confirmar bloques de información.
-      </p>
+<div class="card">
+<h2>Transparencia</h2>
+<p>Proyecto en etapa de expansión. La minería de criptomonedas implica resolver problemas matemáticos complejos, validando y asegurando transacciones en blockchain sin intermediarios.</p>
+</div>
 
-      <p>
-        Cada vez que se valida un bloque, la red recompensa al minero con una fracción de criptomoneda.
-        Este proceso funciona las 24 horas del día, los 7 días de la semana, de manera automática.
-      </p>
+<div class="card">
+<h2>Nuestra visión</h2>
+<p>Convertirnos en la infraestructura privada de minería de Bitcoin más sólida y confiable de Argentina. Podes sumarte a un Blockchain Oficial de MinerCriptoARG regulado por profesionales, garantizando rentabilidad trimestral del 33%.</p>
+</div>
 
-      <p>
-        En promedio, dependiendo de la potencia del equipo y la dificultad de la red,
-        el rendimiento estimado se consolida en ciclos aproximados de <strong>30 días</strong>,
-        donde se refleja el acumulado generado por la actividad continua.
-      </p>
-    </div>
-  </section>
+<div class="card">
+<h2>Equipo</h2>
+<p>Conocé al equipo:</p>
+<div class="team-photos">
+<div class="photo-container"><img src="./persona6.jpg"><div class="overlay">Miembro 6</div></div>
+<div class="photo-container"><img src="./persona7.jpg"><div class="overlay">Miembro 7</div></div>
+<div class="photo-container"><img src="./persona8.jpg"><div class="overlay">Miembro 8</div></div>
+<div class="photo-container"><img src="./persona9.jpg"><div class="overlay">Miembro 9</div></div>
+<div class="photo-container"><img src="./persona10.jpg"><div class="overlay">Miembro 10</div></div>
+</div>
+</div>
 
-  <div class="card">
-    <h2>Transparencia</h2>
-    <p>Proyecto en etapa de expansión. La minería de criptomonedas implica resolver problemas matemáticos complejos, validando y asegurando transacciones en blockchain sin intermediarios.</p>
-  </div>
+<div class="card">
+<h2>Minero Whatsminer M30S++</h2>
+<ul>
+<li>Hashrate: 112 TH/s</li>
+<li>Consumo eléctrico: 3472 W ±10%</li>
+<li>Fuente recomendada: 220V</li>
+<li>Refrigeración: ventiladores integrados</li>
+<li>Conexión estable requerida</li>
+<li>Compatible con pools principales</li>
+</ul>
+</div>
 
-  <div class="card">
-    <h2>Nuestra visión</h2>
-    <p>Convertirnos en la infraestructura privada de minería de Bitcoin más sólida y confiable de Argentina. Podes sumarte a un Blockchain Oficial de MinerCriptoARG regulado por profesionales, garantizando rentabilidad trimestral del 33%.</p>
-  </div>
+<div class="card">
+<h2>Módulos ASIC</h2>
+<p>6 equipos distribuidos en 3 filas × 2:</p>
+<div class="asic-grid">
+<div class="asic-card">ASIC 1</div>
+<div class="asic-card">ASIC 2</div>
+<div class="asic-card">ASIC 3</div>
+<div class="asic-card">ASIC 4</div>
+<div class="asic-card">ASIC 5</div>
+<div class="asic-card">ASIC 6</div>
+</div>
+</div>
 
-  <div class="card">
-    <h2>Equipo</h2>
-    <p>Conocé al equipo:</p>
-    <div class="team-photos">
-      <div class="photo-container"><img src="./persona6.jpg"><div class="overlay">Miembro 6</div></div>
-      <div class="photo-container"><img src="./persona7.jpg"><div class="overlay">Miembro 7</div></div>
-      <div class="photo-container"><img src="./persona8.jpg"><div class="overlay">Miembro 8</div></div>
-      <div class="photo-container"><img src="./persona9.jpg"><div class="overlay">Miembro 9</div></div>
-      <div class="photo-container"><img src="./persona10.jpg"><div class="overlay">Miembro 10</div></div>
-    </div>
-  </div>
+<div class="card">
+<h2>Rendimiento estimado del ciclo</h2>
+<p>Simulación visual de un ciclo mensual de minería (30 días).</p>
+<div class="mining-stats">
+<div class="progress-container"><div class="progress-bar" id="progressBar"></div></div>
+<p class="cycle-text">Día actual del ciclo: <span id="dayCounter">1</span> / 30</p>
+<canvas id="miniChart"></canvas>
+</div>
+</div>
 
-  <div class="card">
-    <h2>Minero Whatsminer M30S++</h2>
-    <ul>
-      <li>Hashrate: 112 TH/s</li>
-      <li>Consumo eléctrico: 3472 W ±10%</li>
-      <li>Fuente recomendada: 220V</li>
-      <li>Refrigeración: ventiladores integrados</li>
-      <li>Conexión estable requerida</li>
-      <li>Compatible con pools principales</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h2>Módulos ASIC</h2>
-    <p>6 equipos distribuidos en 3 filas × 2:</p>
-    <div class="asic-grid">
-      <div class="asic-card">ASIC 1</div>
-      <div class="asic-card">ASIC 2</div>
-      <div class="asic-card">ASIC 3</div>
-      <div class="asic-card">ASIC 4</div>
-      <div class="asic-card">ASIC 5</div>
-      <div class="asic-card">ASIC 6</div>
-    </div>
-  </div>
-
-  <div class="card">
-    <h2>Rendimiento estimado del ciclo</h2>
-    <p>Simulación visual de un ciclo mensual de minería (30 días).</p>
-
-    <div class="mining-stats">
-      <div class="progress-container">
-        <div class="progress-bar" id="progressBar"></div>
-      </div>
-
-      <p class="cycle-text">
-        Día actual del ciclo: <span id="dayCounter">1</span> / 30
-      </p>
-
-      <canvas id="miniChart"></canvas>
-    </div>
-  </div>
-
-  <div class="card">
-    <h2>Usuarios registrados</h2>
-    <p class="user-counter">7</p>
-    <p>Súmate al proyecto.</p>
-  </div>
+<div class="card">
+<h2>Usuarios registrados</h2>
+<p class="user-counter">7</p>
+<p>Súmate al proyecto.</p>
+</div>
 
 </section>
 
@@ -453,9 +176,9 @@ button:hover{
 let btcValue=3927;
 const btcDisplay=document.getElementById("btcAmount");
 function animateBTC(){
-  btcValue+=0.01; // mucho más lento
+  btcValue+=0.01;
   btcDisplay.textContent="$"+btcValue.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});
-  setTimeout(animateBTC,1000); // actualiza cada segundo
+  setTimeout(animateBTC,1000);
 }
 animateBTC();
 
@@ -487,12 +210,9 @@ let currentDay = 1;
 const totalDays = 30;
 const dayDisplay = document.getElementById("dayCounter");
 const progressBar = document.getElementById("progressBar");
-
 function updateCycle(){
     currentDay++;
-    if(currentDay > totalDays){
-        currentDay = 1;
-    }
+    if(currentDay > totalDays){currentDay = 1}
     dayDisplay.textContent = currentDay;
     progressBar.style.width = (currentDay / totalDays) * 100 + "%";
 }
@@ -501,41 +221,35 @@ setInterval(updateCycle, 1000);
 /* ===== MINI GRÁFICO SIMPLE ===== */
 const canvasChart = document.getElementById("miniChart");
 const ctxChart = canvasChart.getContext("2d");
-
 canvasChart.width = canvasChart.offsetWidth;
 canvasChart.height = 120;
-
 let points = [];
-
 function drawChart(){
     ctxChart.clearRect(0,0,canvasChart.width,canvasChart.height);
-
     points.push(Math.random() * canvasChart.height);
-
-    if(points.length > 30){
-        points.shift();
-    }
-
+    if(points.length > 30){points.shift()}
     ctxChart.beginPath();
     ctxChart.strokeStyle = "#00f0ff";
     ctxChart.lineWidth = 2;
-
     for(let i=0; i<points.length; i++){
         let x = (canvasChart.width / 30) * i;
         let y = canvasChart.height - points[i];
-
-        if(i === 0){
-            ctxChart.moveTo(x,y);
-        } else {
-            ctxChart.lineTo(x,y);
-        }
+        if(i === 0){ctxChart.moveTo(x,y)} else {ctxChart.lineTo(x,y)}
     }
-
     ctxChart.stroke();
 }
-
 setInterval(drawChart, 1000);
 </script>
 
-<!-- BOTÓN WHATSAPP PRO -->
-<a href="https://wa.me/5491170663630?text=Hola%20quiero%20recibir%20inform
+<!-- BOTÓN WHATSAPP FLOTANTE -->
+<a href="https://wa.me/5491170663630?text=Hola%20quiero%20recibir%20informacion%20sobre%20MinerCriptoARG"
+   class="whatsapp-float"
+   target="_blank"
+   rel="noopener noreferrer">
+
+    <div class="whatsapp-tooltip">Solicitar información</div>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+
+</body>
+</html>
