@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>MinerCriptARG1</title>
+<title>MinerCriptoARG1</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto+Mono&display=swap" rel="stylesheet">
 
 <style>
@@ -27,6 +27,12 @@ a{text-decoration:none;color:inherit;}
     color:#00f0ff;
     box-shadow:0 0 10px rgba(0,255,255,0.3);
     z-index:1000;
+}
+
+.logo-container img{
+    width:220px;
+    margin-top:20px;
+    border-radius:15px;
 }
 
 header{
@@ -69,6 +75,39 @@ h2{
 p,li{color:#c0dfff;font-size:16px;line-height:1.5;}
 ul{text-align:left;margin-left:20px;}
 
+.team-photos{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-top:20px;
+}
+.team-photos img{
+    width:150px;
+    border-radius:15px;
+    margin:10px;
+    transition:0.4s;
+}
+.team-photos img:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 20px #00f0ff;
+}
+
+/* Slider ASIC */
+.slider{
+    position:relative;
+    max-width:400px;
+    margin:20px auto;
+}
+.slider img{
+    width:100%;
+    border-radius:15px;
+    display:none;
+}
+.slider img.active{
+    display:block;
+    box-shadow:0 0 25px #00f0ff;
+}
+
 button{
     background:linear-gradient(135deg,#00f0ff,#0044ff);
     border:none;
@@ -84,13 +123,6 @@ button{
 button:hover{
     transform:scale(1.05);
     box-shadow:0 0 15px #00f0ff;
-}
-
-.user-counter{
-    font-size:22px;
-    font-weight:bold;
-    color:#00f0ff;
-    margin-top:10px;
 }
 
 .payment-methods{
@@ -118,6 +150,10 @@ button:hover{
 
 <canvas id="cryptoRain"></canvas>
 
+<div class="logo-container">
+<img src="./logo.png" alt="Logo MinerCriptoARG">
+</div>
+
 <header>
 <h1>MinerCriptoARG</h1>
 <p>Infraestructura privada de minería de Bitcoin</p>
@@ -126,8 +162,28 @@ button:hover{
 <section>
 
 <div class="card">
-<h2>¿Qué hacemos?</h2>
-<p>Operamos equipos de minería de Bitcoin con infraestructura propia en Argentina.</p>
+<h2>Equipo</h2>
+<div class="team-photos">
+<img src="./persona6.jpg">
+<img src="./persona7.jpg">
+<img src="./persona8.jpg">
+<img src="./persona9.jpg">
+<img src="./persona10.jpg">
+</div>
+</div>
+
+<div class="card">
+<h2>Módulos ASIC en operación</h2>
+
+<div class="slider">
+<img src="./asic1.jpg" class="active">
+<img src="./asic2.jpg">
+<img src="./asic3.jpg">
+<img src="./asic4.jpg">
+<img src="./asic5.jpg">
+<img src="./asic6.jpg">
+</div>
+
 </div>
 
 <div class="card">
@@ -139,60 +195,50 @@ button:hover{
 </div>
 
 <div class="card">
-<h2>Usuarios registrados</h2>
-<p class="user-counter">7</p>
-<p>Súmate al equipo de minería y sé parte del proyecto.</p>
-</div>
-
-<div class="card">
-<h2>Solicitar información</h2>
-
-<form id="requestForm">
-<input type="text" placeholder="Nombre" required><br><br>
-<input type="text" placeholder="Apellido" required><br><br>
-<input type="text" placeholder="Email o Celular" required><br>
-<button type="submit">Enviar</button>
-</form>
-
 <button onclick="togglePayment()">Ver métodos de pago</button>
-
 <div id="paymentInfo" class="payment-methods">
 <p>💰 Binance ID: 801767852</p>
 <p>🏦 CBU: 1430001713033086180018</p>
-<button onclick="togglePayment()">Cerrar información</button>
+<button onclick="togglePayment()">Cerrar</button>
 </div>
-
 </div>
 
 </section>
 
 <footer style="padding:20px;">
-©️ 2026 CriptoMinerARG - Proyecto privado independiente
+©️ 2026 MinerCriptoARG - Proyecto privado independiente
 </footer>
 
 <script>
 
 // Toggle pagos
 function togglePayment(){
-    const payment=document.getElementById("paymentInfo");
-    payment.style.display=payment.style.display==="block"?"none":"block";
+const p=document.getElementById("paymentInfo");
+p.style.display=p.style.display==="block"?"none":"block";
 }
 
-// BTC contador dinámico
+// BTC contador
 let btc=0.00218432;
-function updateBTC(){
-    btc+=0.00000015;
-    document.getElementById("btcCounter").textContent=btc.toFixed(8)+" BTC";
-}
-setInterval(updateBTC,3000);
+setInterval(()=>{
+btc+=0.00000015;
+document.getElementById("btcCounter").textContent=btc.toFixed(8)+" BTC";
+},3000);
 
-// USD contador dinámico
+// USD contador
 let usd=3910;
-function updateUSD(){
-    usd+=0.12;
-    document.getElementById("usdCounter").textContent="$ "+usd.toFixed(2);
-}
-setInterval(updateUSD,5000);
+setInterval(()=>{
+usd+=0.12;
+document.getElementById("usdCounter").textContent="$ "+usd.toFixed(2);
+},5000);
+
+// Slider ASIC automático
+let slideIndex=0;
+const slides=document.querySelectorAll(".slider img");
+setInterval(()=>{
+slides[slideIndex].classList.remove("active");
+slideIndex=(slideIndex+1)%slides.length;
+slides[slideIndex].classList.add("active");
+},3000);
 
 // Crypto rain
 const canvas=document.getElementById("cryptoRain");
@@ -204,16 +250,16 @@ const fontSize=28;
 const columns=Math.floor(canvas.width/fontSize);
 const drops=Array(columns).fill(1);
 function draw(){
-    ctx.fillStyle='rgba(11,15,30,0.04)';
-    ctx.fillRect(0,0,canvas.width,canvas.height);
-    ctx.fillStyle='#00f0ff';
-    ctx.font=fontSize+'px monospace';
-    for(let i=0;i<drops.length;i++){
-        const text=cryptos[Math.floor(Math.random()*cryptos.length)];
-        ctx.fillText(text,i*fontSize,drops[i]*fontSize);
-        if(drops[i]*fontSize>canvas.height&&Math.random()>0.975) drops[i]=0;
-        drops[i]++;
-    }
+ctx.fillStyle='rgba(11,15,30,0.04)';
+ctx.fillRect(0,0,canvas.width,canvas.height);
+ctx.fillStyle='#00f0ff';
+ctx.font=fontSize+'px monospace';
+for(let i=0;i<drops.length;i++){
+const text=cryptos[Math.floor(Math.random()*cryptos.length)];
+ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+if(drops[i]*fontSize>canvas.height&&Math.random()>0.975) drops[i]=0;
+drops[i]++;
+}
 }
 setInterval(draw,120);
 window.addEventListener('resize',()=>{
