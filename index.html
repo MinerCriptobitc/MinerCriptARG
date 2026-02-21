@@ -5,7 +5,7 @@
 <title>MinerCriptARG1</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto+Mono&display=swap" rel="stylesheet">
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* { box-sizing: border-box; margin:0; padding:0; }
 body {
     font-family: 'Roboto Mono', monospace;
     background: #0b0f1e;
@@ -13,102 +13,87 @@ body {
     text-align: center;
     overflow-x: hidden;
 }
-a { text-decoration: none; color: inherit; }
-
+a { text-decoration:none; color:inherit; }
 header {
     background: linear-gradient(135deg,#0d1a2a,#081021);
     padding: 50px 20px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.5);
     position: relative;
 }
-header h1 { font-family: 'Orbitron', sans-serif; font-size: 42px; color: #00f0ff; margin-bottom: 10px; text-shadow: 0 0 8px #00f0ff; }
-header p { font-size: 18px; color: #a0c0ff; }
-.mined-counter {
-    font-size: 20px;
-    color: #00ffff;
-    margin-top: 15px;
-    text-shadow: 0 0 6px #00ffff;
-}
-.operando {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 14px;
-    color: #ffdd00;
-    font-weight: bold;
-    text-shadow: 0 0 5px #ffdd00;
-}
+header h1 { font-family: 'Orbitron', sans-serif; font-size: 42px; color:#00f0ff; margin-bottom:10px; text-shadow:0 0 8px #00f0ff; }
+header p { font-size:18px; color:#a0c0ff; }
+.mined-counter { font-size:20px; color:#00ffff; margin-top:10px; text-shadow:0 0 6px #00ffff; }
+.operando { position:absolute; top:15px; right:20px; font-size:14px; color:#ffdd00; font-weight:bold; text-shadow:0 0 5px #ffdd00; }
 
-.logo-container img { width: 220px; margin-top: 20px; border-radius: 15px; }
-
-section { padding: 50px 20px; }
+.logo-container img { width:220px; margin-top:20px; border-radius:15px; }
+section { padding:50px 20px; }
 .card {
     background: rgba(20,35,60,0.85);
-    margin: 25px auto;
-    padding: 30px;
-    border-radius: 20px;
-    width: 80%;
-    max-width: 750px;
+    margin:25px auto;
+    padding:30px;
+    border-radius:20px;
+    width:80%;
+    max-width:750px;
     backdrop-filter: blur(8px);
     box-shadow: 0 0 20px rgba(0,255,255,0.2);
     transition: transform 0.4s, box-shadow 0.4s;
 }
-.card:hover { transform: translateY(-10px); box-shadow: 0 0 30px rgba(0,255,255,0.5); }
-h2 { color: #00f0ff; font-family: 'Orbitron', sans-serif; margin-bottom: 15px; text-shadow: 0 0 6px #00f0ff; }
-p, li { color: #c0dfff; font-size: 16px; line-height: 1.5; }
-ul { text-align: left; margin-left: 20px; }
+.card:hover { transform:translateY(-10px); box-shadow:0 0 30px rgba(0,255,255,0.5); }
+h2 { color:#00f0ff; font-family:'Orbitron', sans-serif; margin-bottom:15px; text-shadow:0 0 6px #00f0ff; }
+p, li { color:#c0dfff; font-size:16px; line-height:1.5; }
+ul { text-align:left; margin-left:20px; }
 
 button {
     background: linear-gradient(135deg,#00f0ff,#0044ff);
-    border: none;
-    padding: 12px 30px;
-    font-size: 16px;
-    border-radius: 30px;
-    cursor: pointer;
-    font-weight: bold;
-    color: #fff;
+    border:none;
+    padding:12px 30px;
+    font-size:16px;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:bold;
+    color:#fff;
     transition: all 0.3s ease;
-    margin-top: 15px;
+    margin-top:15px;
 }
-button:hover { transform: scale(1.05); box-shadow: 0 0 15px #00f0ff; }
+button:hover { transform:scale(1.05); box-shadow:0 0 15px #00f0ff; }
 
-.team-photos { display: flex; flex-wrap: wrap; justify-content: center; margin-top: 20px; }
-.team-photos .photo-container { position: relative; margin: 10px; }
-.team-photos img { width: 150px; border-radius: 15px; transition: 0.4s; }
-.team-photos img:hover { transform: scale(1.05); box-shadow: 0 0 20px #00f0ff; }
+.team-photos { display:flex; flex-wrap:wrap; justify-content:center; margin-top:20px; }
+.team-photos .photo-container { position:relative; margin:10px; }
+.team-photos img { width:150px; border-radius:15px; transition:0.4s; }
+.team-photos img:hover { transform:scale(1.05); box-shadow:0 0 20px #00f0ff; }
 .team-photos .overlay {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    background: rgba(0,0,0,0.7); color: #00f0ff;
-    font-size: 14px; padding: 5px; border-radius: 0 0 15px 15px;
-    opacity: 0; transition: 0.3s;
+    position:absolute; bottom:0; left:0; right:0;
+    background: rgba(0,0,0,0.7); color:#00f0ff;
+    font-size:14px; padding:5px; border-radius:0 0 15px 15px;
+    opacity:0; transition:0.3s;
 }
-.photo-container:hover .overlay { opacity: 1; }
+.photo-container:hover .overlay { opacity:1; }
 
-.asic-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; justify-items: center; margin-top: 15px; }
-.asic-card { background: rgba(20,35,60,0.85); padding: 20px; border-radius: 15px; width: 100%; max-width: 300px; box-shadow: 0 0 15px rgba(0,255,255,0.2); transition: transform 0.3s; }
-.asic-card:hover { transform: translateY(-5px); box-shadow: 0 0 25px #00f0ff; }
+.asic-grid { display:grid; grid-template-columns: repeat(2,1fr); gap:20px; justify-items:center; margin-top:15px; }
+.asic-card { background: rgba(20,35,60,0.85); padding:20px; border-radius:15px; width:100%; max-width:300px; box-shadow:0 0 15px rgba(0,255,255,0.2); transition: transform 0.3s; }
+.asic-card:hover { transform:translateY(-5px); box-shadow:0 0 25px #00f0ff; }
 
-.user-counter { font-size: 22px; font-weight: bold; color: #00f0ff; margin-top: 10px; }
+.user-counter { font-size:22px; font-weight:bold; color:#00f0ff; margin-top:10px; }
 
-.payment-methods { display: none; margin-top: 15px; text-align: left; background: rgba(20,35,60,0.85); padding: 15px; border-radius: 15px; }
-.payment-methods p { margin: 6px 0; }
-.payment-methods p.binance { color: #f7931a; }
-.payment-methods p.cbu { color: #4caf50; }
+.payment-methods { display:none; margin-top:15px; text-align:left; background: rgba(20,35,60,0.85); padding:15px; border-radius:15px; }
+.payment-methods p { margin:6px 0; }
+.payment-methods p.binance { color:#f7931a; }
+.payment-methods p.cbu { color:#4caf50; }
 
 .whatsapp-link {
-    display: inline-flex; align-items: center; background: #25D366;
-    color: white; padding: 10px 20px; border-radius: 30px; font-weight: bold;
-    margin-top: 15px; transition: 0.3s;
+    display:inline-flex; align-items:center; background:#25D366;
+    color:white; padding:10px 20px; border-radius:30px; font-weight:bold;
+    margin-top:15px; transition:0.3s;
 }
-.whatsapp-link img { width: 25px; margin-right: 10px; }
-.whatsapp-link:hover { transform: scale(1.05); box-shadow: 0 0 15px #25D366; }
+.whatsapp-link img { width:25px; margin-right:10px; }
+.whatsapp-link:hover { transform:scale(1.05); box-shadow:0 0 15px #25D366; }
 
-#cryptoRain { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-1; }
+#cryptoRain { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; }
 
-.form-group { text-align:left; margin: 10px 0; }
+.form-group { text-align:left; margin:10px 0; }
 .form-group label { display:block; margin-bottom:5px; color:#00f0ff; }
-.form-group input { width: 100%; padding:8px; border-radius:8px; border:1px solid #00f0ff; background: rgba(0,0,0,0.2); color:#fff; }
-#requestForm { margin-top: 15px; }
+.form-group input { width:100%; padding:8px; border-radius:8px; border:1px solid #00f0ff; background: rgba(0,0,0,0.2); color:#fff; }
+#requestForm { margin-top:15px; }
 </style>
 </head>
 <body>
@@ -133,7 +118,18 @@ button:hover { transform: scale(1.05); box-shadow: 0 0 15px #00f0ff; }
     </div>
 
     <div class="card">
+        <h2>Transparencia</h2>
+        <p>Proyecto en etapa de expansión. La minería de criptomonedas implica resolver problemas matemáticos complejos, validando y asegurando transacciones en blockchain sin intermediarios, evitando el doble gasto y creando nuevas monedas como recompensa.</p>
+    </div>
+
+    <div class="card">
+        <h2>Nuestra visión</h2>
+        <p>Convertirnos en la infraestructura privada de minería de Bitcoin más sólida y confiable de Argentina.</p>
+    </div>
+
+    <div class="card">
         <h2>Equipo</h2>
+        <p>Conocé al equipo que hace posible MinerCriptoARG:</p>
         <div class="team-photos">
             <div class="photo-container"><img src="./persona6.jpg" alt="Miembro 6"><div class="overlay">Miembro 6</div></div>
             <div class="photo-container"><img src="./persona7.jpg" alt="Miembro 7"><div class="overlay">Miembro 7</div></div>
@@ -151,11 +147,13 @@ button:hover { transform: scale(1.05); box-shadow: 0 0 15px #00f0ff; }
             <li>Fuente de alimentación recomendada: 220V</li>
             <li>Refrigeración: ventiladores integrados</li>
             <li>Conexión estable a Internet requerida</li>
+            <li>Compatible con pools de minería principales</li>
         </ul>
     </div>
 
     <div class="card">
         <h2>Módulos ASIC</h2>
+        <p>6 equipos ASIC distribuidos en 3 filas × 2 por fila:</p>
         <div class="asic-grid">
             <div class="asic-card">ASIC 1</div>
             <div class="asic-card">ASIC 2</div>
@@ -184,7 +182,6 @@ button:hover { transform: scale(1.05); box-shadow: 0 0 15px #00f0ff; }
             <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
             Contacto WhatsApp
         </a>
-
         <div id="paymentInfo" class="payment-methods">
             <p class="binance">💰 <strong>Binance:</strong> ID 801767852</p>
             <p class="cbu">🏦 <strong>Transferencia bancaria:</strong> CBU 1430001713033086180018</p>
@@ -199,35 +196,31 @@ button:hover { transform: scale(1.05); box-shadow: 0 0 15px #00f0ff; }
 </footer>
 
 <script>
-// Mostrar/ocultar métodos de pago
 const btn = document.getElementById('infoBtn');
 const paymentInfo = document.getElementById('paymentInfo');
-btn.addEventListener('click', () => {
-    paymentInfo.style.display = (paymentInfo.style.display === "block") ? "none" : "block";
-});
+btn.addEventListener('click',()=>{ paymentInfo.style.display = (paymentInfo.style.display==="block")?"none":"block"; });
 
-// Formulario
-document.getElementById('requestForm').addEventListener('submit', function(e){
+document.getElementById('requestForm').addEventListener('submit',function(e){
     e.preventDefault();
     paymentInfo.style.display = "block";
     alert("Gracias, tu información ha sido enviada. Se muestran los métodos de pago.");
     this.reset();
 });
 
-// Lluvia BTC eléctrica azul
+// Lluvia de criptos azul eléctrico
 const canvas = document.getElementById('cryptoRain');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 const cryptos = ['₿','Ξ','Ł','₮','Ƀ'];
-const fontSize = 28; // tamaño más grande
+const fontSize = 28;
 const columns = Math.floor(canvas.width / fontSize);
 const drops = Array(columns).fill(1);
-function draw() {
-    ctx.fillStyle = 'rgba(11,15,30,0.05)'; // deja un rastro suave
+function draw(){
+    ctx.fillStyle='rgba(11,15,30,0.04)';
     ctx.fillRect(0,0,canvas.width,canvas.height);
-    ctx.fillStyle = '#00f0ff';
-    ctx.font = fontSize+'px monospace';
+    ctx.fillStyle='#00f0ff';
+    ctx.font=fontSize+'px monospace';
     for(let i=0;i<drops.length;i++){
         const text = cryptos[Math.floor(Math.random()*cryptos.length)];
         ctx.fillText(text,i*fontSize,drops[i]*fontSize);
@@ -235,33 +228,33 @@ function draw() {
         drops[i]++;
     }
 }
-setInterval(draw,100);
+setInterval(draw,120);
 window.addEventListener('resize',()=>{ canvas.width=window.innerWidth; canvas.height=window.innerHeight; });
 
 // Contador usuarios
 const userCounter = document.querySelector('.user-counter');
 const startDate = new Date(2026,1,20);
-function updateUsers() {
+function updateUsers(){
     const now = new Date();
-    const diff = now - startDate;
-    const daysPassed = Math.floor(diff / (1000*60*60*24));
+    const diff = now-startDate;
+    const daysPassed = Math.floor(diff/(1000*60*60*24));
     const added = Math.floor(daysPassed/2);
-    userCounter.textContent = 7 + added;
+    userCounter.textContent = 7+added;
 }
 updateUsers();
 setInterval(updateUsers,3600000);
 
 // Contador minados
 const minedCounter = document.getElementById('minedCounter');
-let usd = 3900;
-let btc = 0.05740149;
-function updateMined() {
-    const usdIncrement = (Math.random() * 0.05).toFixed(2);
-    usd = parseFloat((usd + parseFloat(usdIncrement)).toFixed(2));
-    btc = parseFloat((usd / 68000).toFixed(8));
-    minedCounter.textContent = Llevamos minados ${usd} USD (~${btc} BTC);
+let usd=3900;
+let btc=0.05740149;
+function updateMined(){
+    const usdIncrement=(Math.random()*0.05).toFixed(2);
+    usd=parseFloat((usd+parseFloat(usdIncrement)).toFixed(2));
+    btc=parseFloat((usd/68000).toFixed(8));
+    minedCounter.textContent=Llevamos minados ${usd} USD (~${btc} BTC);
 }
-setInterval(updateMined, 10000);
+setInterval(updateMined,10000);
 </script>
 
 </body>
