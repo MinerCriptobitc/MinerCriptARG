@@ -2,148 +2,136 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>MinerCriptoARG1</title>
+<title>MinerCriptARG1</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto+Mono&display=swap" rel="stylesheet">
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 body{
-    font-family:'Roboto Mono',monospace;
-    background:#0b0f1e;
-    color:#e0e0e0;
-    text-align:center;
-    overflow-x:hidden;
+font-family:'Roboto Mono',monospace;
+background:#0b0f1e;
+color:#e0e0e0;
+text-align:center;
+overflow-x:hidden;
 }
 a{text-decoration:none;color:inherit;}
 
 .operando{
-    position:fixed;
-    top:15px;
-    right:20px;
-    background:rgba(0,0,0,0.6);
-    padding:8px 15px;
-    border-radius:20px;
-    font-size:14px;
-    color:#00f0ff;
-    box-shadow:0 0 10px rgba(0,255,255,0.3);
-    z-index:1000;
-}
-
-.logo-container img{
-    width:220px;
-    margin-top:20px;
-    border-radius:15px;
+position:fixed;
+top:15px;
+right:20px;
+background:rgba(0,0,0,0.6);
+padding:8px 15px;
+border-radius:20px;
+font-size:14px;
+color:#00f0ff;
+box-shadow:0 0 10px rgba(0,255,255,0.3);
+z-index:1000;
 }
 
 header{
-    background:linear-gradient(135deg,#0d1a2a,#081021);
-    padding:50px 20px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.5);
+background:linear-gradient(135deg,#0d1a2a,#081021);
+padding:50px 20px;
+box-shadow:0 5px 20px rgba(0,0,0,0.5);
 }
 header h1{
-    font-family:'Orbitron',sans-serif;
-    font-size:42px;
-    color:#00f0ff;
-    margin-bottom:10px;
-    text-shadow:0 0 8px #00f0ff;
+font-family:'Orbitron',sans-serif;
+font-size:42px;
+color:#00f0ff;
+margin-bottom:10px;
+text-shadow:0 0 8px #00f0ff;
 }
 header p{font-size:18px;color:#a0c0ff;}
+
+.logo-container img{
+width:220px;
+margin-top:20px;
+border-radius:15px;
+}
 
 section{padding:50px 20px;}
 
 .card{
-    background:rgba(20,35,60,0.85);
-    margin:25px auto;
-    padding:30px;
-    border-radius:20px;
-    width:80%;
-    max-width:750px;
-    backdrop-filter:blur(8px);
-    box-shadow:0 0 20px rgba(0,255,255,0.2);
-    transition:transform 0.4s,box-shadow 0.4s;
+background:rgba(20,35,60,0.85);
+margin:25px auto;
+padding:30px;
+border-radius:20px;
+width:80%;
+max-width:750px;
+backdrop-filter:blur(8px);
+box-shadow:0 0 20px rgba(0,255,255,0.2);
+transition:transform 0.4s,box-shadow 0.4s;
 }
 .card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 0 30px rgba(0,255,255,0.5);
+transform:translateY(-10px);
+box-shadow:0 0 30px rgba(0,255,255,0.5);
 }
 h2{
-    color:#00f0ff;
-    font-family:'Orbitron',sans-serif;
-    margin-bottom:15px;
-    text-shadow:0 0 6px #00f0ff;
+color:#00f0ff;
+font-family:'Orbitron',sans-serif;
+margin-bottom:15px;
+text-shadow:0 0 6px #00f0ff;
 }
 p,li{color:#c0dfff;font-size:16px;line-height:1.5;}
 ul{text-align:left;margin-left:20px;}
 
-.team-photos{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    margin-top:20px;
+.team-photos{display:flex;flex-wrap:wrap;justify-content:center;margin-top:20px;}
+.team-photos .photo-container{position:relative;margin:10px;}
+.team-photos img{width:150px;border-radius:15px;transition:0.4s;}
+.team-photos img:hover{transform:scale(1.05);box-shadow:0 0 20px #00f0ff;}
+.team-photos .overlay{
+position:absolute;bottom:0;left:0;right:0;
+background:rgba(0,0,0,0.7);color:#00f0ff;
+font-size:14px;padding:5px;border-radius:0 0 15px 15px;
+opacity:0;transition:0.3s;
 }
-.team-photos img{
-    width:150px;
-    border-radius:15px;
-    margin:10px;
-    transition:0.4s;
+.photo-container:hover .overlay{opacity:1;}
+
+/* SLIDER ASIC */
+.asic-slider{
+position:relative;
+max-width:400px;
+margin:20px auto;
 }
-.team-photos img:hover{
-    transform:scale(1.05);
-    box-shadow:0 0 20px #00f0ff;
+.asic-slider img{
+width:100%;
+border-radius:15px;
+display:none;
+}
+.asic-slider img.active{
+display:block;
+box-shadow:0 0 25px #00f0ff;
 }
 
-/* Slider ASIC */
-.slider{
-    position:relative;
-    max-width:400px;
-    margin:20px auto;
-}
-.slider img{
-    width:100%;
-    border-radius:15px;
-    display:none;
-}
-.slider img.active{
-    display:block;
-    box-shadow:0 0 25px #00f0ff;
+.user-counter{font-size:22px;font-weight:bold;color:#00f0ff;margin-top:10px;}
+
+.payment-methods{
+display:none;
+margin-top:15px;
+text-align:left;
+background:rgba(20,35,60,0.85);
+padding:15px;
+border-radius:15px;
 }
 
 button{
-    background:linear-gradient(135deg,#00f0ff,#0044ff);
-    border:none;
-    padding:12px 30px;
-    font-size:16px;
-    border-radius:30px;
-    cursor:pointer;
-    font-weight:bold;
-    color:#fff;
-    transition:all 0.3s ease;
-    margin-top:15px;
+background:linear-gradient(135deg,#00f0ff,#0044ff);
+border:none;
+padding:12px 30px;
+font-size:16px;
+border-radius:30px;
+cursor:pointer;
+font-weight:bold;
+color:#fff;
+transition:all 0.3s ease;
+margin-top:15px;
 }
-button:hover{
-    transform:scale(1.05);
-    box-shadow:0 0 15px #00f0ff;
-}
+button:hover{transform:scale(1.05);box-shadow:0 0 15px #00f0ff;}
 
-.payment-methods{
-    display:none;
-    margin-top:15px;
-    text-align:left;
-    background:rgba(20,35,60,0.85);
-    padding:15px;
-    border-radius:15px;
-}
-
-#cryptoRain{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    z-index:-1;
-}
+#cryptoRain{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;}
 </style>
 </head>
+
 <body>
 
 <div class="operando">Operando desde 20/02/2025</div>
@@ -162,20 +150,29 @@ button:hover{
 <section>
 
 <div class="card">
+<h2>Estado de Minería en Tiempo Real</h2>
+<p>BTC minados:</p>
+<p id="btcCounter" style="font-size:24px;color:#00f0ff;font-weight:bold;">0.00000000 BTC</p>
+<p>USD generados hasta el momento:</p>
+<p id="usdCounter" style="font-size:24px;color:#00f0ff;font-weight:bold;">$ 3910</p>
+</div>
+
+<div class="card">
 <h2>Equipo</h2>
+<p>Conocé al equipo que hace posible MinerCriptoARG:</p>
 <div class="team-photos">
-<img src="./persona6.jpg">
-<img src="./persona7.jpg">
-<img src="./persona8.jpg">
-<img src="./persona9.jpg">
-<img src="./persona10.jpg">
+<div class="photo-container"><img src="./persona6.jpg"><div class="overlay">Miembro 6</div></div>
+<div class="photo-container"><img src="./persona7.jpg"><div class="overlay">Miembro 7</div></div>
+<div class="photo-container"><img src="./persona8.jpg"><div class="overlay">Miembro 8</div></div>
+<div class="photo-container"><img src="./persona9.jpg"><div class="overlay">Miembro 9</div></div>
+<div class="photo-container"><img src="./persona10.jpg"><div class="overlay">Miembro 10</div></div>
 </div>
 </div>
 
 <div class="card">
 <h2>Módulos ASIC en operación</h2>
 
-<div class="slider">
+<div class="asic-slider">
 <img src="./asic1.jpg" class="active">
 <img src="./asic2.jpg">
 <img src="./asic3.jpg">
@@ -186,63 +183,40 @@ button:hover{
 
 </div>
 
-<div class="card">
-<h2>Estado de Minería en Tiempo Real</h2>
-<p>BTC minados:</p>
-<p id="btcCounter" style="font-size:24px;color:#00f0ff;font-weight:bold;">0.00000000 BTC</p>
-<p>USD generados hasta el momento:</p>
-<p id="usdCounter" style="font-size:24px;color:#00f0ff;font-weight:bold;">$ 3910</p>
-</div>
-
-<div class="card">
-<button onclick="togglePayment()">Ver métodos de pago</button>
-<div id="paymentInfo" class="payment-methods">
-<p>💰 Binance ID: 801767852</p>
-<p>🏦 CBU: 1430001713033086180018</p>
-<button onclick="togglePayment()">Cerrar</button>
-</div>
-</div>
-
 </section>
 
-<footer style="padding:20px;">
+<footer>
 ©️ 2026 MinerCriptoARG - Proyecto privado independiente
 </footer>
 
 <script>
 
-// Toggle pagos
-function togglePayment(){
-const p=document.getElementById("paymentInfo");
-p.style.display=p.style.display==="block"?"none":"block";
-}
-
 // BTC contador
 let btc=0.00218432;
 setInterval(()=>{
-btc+=0.00000015;
+btc+=0.00000012;
 document.getElementById("btcCounter").textContent=btc.toFixed(8)+" BTC";
 },3000);
 
 // USD contador
 let usd=3910;
 setInterval(()=>{
-usd+=0.12;
+usd+=0.08;
 document.getElementById("usdCounter").textContent="$ "+usd.toFixed(2);
 },5000);
 
-// Slider ASIC automático
+// Slider ASIC
 let slideIndex=0;
-const slides=document.querySelectorAll(".slider img");
+const slides=document.querySelectorAll(".asic-slider img");
 setInterval(()=>{
 slides[slideIndex].classList.remove("active");
 slideIndex=(slideIndex+1)%slides.length;
 slides[slideIndex].classList.add("active");
 },3000);
 
-// Crypto rain
-const canvas=document.getElementById("cryptoRain");
-const ctx=canvas.getContext("2d");
+// Crypto Rain
+const canvas=document.getElementById('cryptoRain');
+const ctx=canvas.getContext('2d');
 canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
 const cryptos=['₿','Ξ','Ł','₮','Ƀ'];
@@ -266,7 +240,6 @@ window.addEventListener('resize',()=>{
 canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
 });
-
 </script>
 
 </body>
