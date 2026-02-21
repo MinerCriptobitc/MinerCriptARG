@@ -124,7 +124,7 @@ button:hover { transform:scale(1.05); box-shadow:0 0 15px #00f0ff; }
 
     <div class="card">
         <h2>Nuestra visión</h2>
-        <p>Convertirnos en la infraestructura privada de minería más sólida y confiable de Argentina.</p>
+        <p>Convertirnos en la infraestructura privada de minería de Bitcoin más sólida y confiable de Argentina.</p>
     </div>
 
     <div class="card">
@@ -209,7 +209,7 @@ document.getElementById('requestForm').addEventListener('submit',function(e){
     this.reset();
 });
 
-// Lluvia 3D de BTC
+// Lluvia 3D BTC
 const canvas=document.getElementById('cryptoRain');
 const ctx=canvas.getContext('2d');
 canvas.width=window.innerWidth;
@@ -218,25 +218,24 @@ const fontSize=28;
 const columns=Math.floor(canvas.width/fontSize);
 const drops=[];
 for(let i=0;i<columns;i++){
-    drops[i]={y:Math.random()*canvas.height, speed:2+Math.random()*4};
+    drops[i]={y:Math.random()*canvas.height, speed:2+Math.random()*3, size:fontSize/2+Math.random()*fontSize/2};
 }
 const cryptos=['₿','Ξ','Ł','₮','Ƀ'];
 function draw(){
     ctx.fillStyle='rgba(11,15,30,0.05)';
     ctx.fillRect(0,0,canvas.width,canvas.height);
-    ctx.font=fontSize+'px monospace';
     for(let i=0;i<drops.length;i++){
-        const text=cryptos[Math.floor(Math.random()*cryptos.length)];
-        // efecto 3D: sombra y brillo
         ctx.shadowColor='#00f0ff';
         ctx.shadowBlur=12;
         ctx.fillStyle='#00f0ff';
+        ctx.font=drops[i].size+'px monospace';
+        const text=cryptos[Math.floor(Math.random()*cryptos.length)];
         ctx.fillText(text,i*fontSize,drops[i].y);
         drops[i].y+=drops[i].speed;
         if(drops[i].y>canvas.height) drops[i].y=0;
     }
 }
-setInterval(draw,70);
+setInterval(draw,60);
 window.addEventListener('resize',()=>{ canvas.width=window.innerWidth; canvas.height=window.innerHeight; });
 
 // Contador usuarios
@@ -252,16 +251,16 @@ function updateUsers(){
 updateUsers();
 setInterval(updateUsers,3600000);
 
-// Contador minados
+// Contador USD/BTC suave por centavos cada segundo
 const minedCounter=document.getElementById('minedCounter');
 let usd=3900;
 function updateMined(){
-    const usdIncrement=(Math.random()*0.05).toFixed(2);
-    usd=parseFloat((usd+parseFloat(usdIncrement)).toFixed(2));
+    usd=parseFloat((usd+0.01).toFixed(2));
     const btc=(usd/68000).toFixed(8);
     minedCounter.textContent=Llevamos minados ${usd} USD (~${btc} BTC);
 }
-setInterval(updateMined,10000);
+setInterval(updateMined,1000);
+
 </script>
 
 </body>
