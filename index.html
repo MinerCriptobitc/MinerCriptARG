@@ -3,274 +3,201 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MinerCriptoARG</title>
+<title>Proyecto BTC Minería</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto+Mono&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-font-family:'Roboto Mono',monospace;
-background:#0b0f1e;
-color:#e0e0e0;
-text-align:center;
-overflow-x:hidden;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
-a{text-decoration:none;color:inherit}
+
+body{
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    color:white;
+    text-align:center;
+}
 
 header{
-background:linear-gradient(135deg,#0d1a2a,#081021);
-padding:60px 20px;
-box-shadow:0 5px 20px rgba(0,0,0,0.5);
-}
-header h1{
-font-family:'Orbitron',sans-serif;
-font-size:42px;
-color:#00f0ff;
-text-shadow:0 0 10px #00f0ff;
-}
-header p{color:#a0c0ff;margin-top:10px}
-
-section{padding:50px 20px}
-
-.card{
-background:rgba(20,35,60,0.85);
-margin:25px auto;
-padding:30px;
-border-radius:20px;
-width:90%;
-max-width:800px;
-box-shadow:0 0 20px rgba(0,255,255,0.2);
-transition:0.4s;
-}
-.card:hover{
-transform:translateY(-8px);
-box-shadow:0 0 30px rgba(0,255,255,0.4);
+    padding:40px 20px;
 }
 
-h2{
-color:#00f0ff;
-font-family:'Orbitron',sans-serif;
-margin-bottom:15px;
+.logo-principal{
+    font-size:40px;
+    font-weight:700;
+    color:#f7931a;
 }
 
-.btc-counter{
-font-size:38px;
-font-weight:bold;
-color:#00ffcc;
-text-shadow:0 0 15px #00ffcc;
-margin-top:10px;
+.subtitulo{
+    margin-top:10px;
+    font-size:18px;
+    opacity:0.8;
 }
 
-.team-photos{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-margin-top:20px;
-}
-.team-photos img{
-width:140px;
-margin:10px;
-border-radius:15px;
-box-shadow:0 0 15px rgba(0,255,255,0.3);
+.contador-box{
+    margin:40px auto;
+    padding:30px;
+    width:90%;
+    max-width:500px;
+    background:rgba(255,255,255,0.08);
+    border-radius:15px;
+    backdrop-filter:blur(10px);
+    box-shadow:0 0 20px rgba(0,0,0,0.5);
 }
 
-.asic-grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:20px;
-margin-top:15px;
-}
-.asic-card{
-background:rgba(20,35,60,0.85);
-padding:20px;
-border-radius:15px;
-box-shadow:0 0 15px rgba(0,255,255,0.2);
+.contador-box h2{
+    margin-bottom:15px;
 }
 
-.form-group{
-margin:12px 0;
-text-align:left;
+.contador{
+    font-size:32px;
+    font-weight:600;
+    color:#f7931a;
 }
-.form-group label{
-display:block;
-margin-bottom:5px;
-color:#00f0ff;
+
+.info{
+    margin:50px 20px;
+    font-size:16px;
+    line-height:1.6;
+    opacity:0.9;
 }
-.form-group input{
-width:100%;
-padding:10px;
-border-radius:10px;
-border:1px solid #00f0ff;
-background:rgba(0,0,0,0.4);
-color:#fff;
+
+.form-section{
+    margin:60px 20px;
+}
+
+.form-section h2{
+    margin-bottom:20px;
+    color:#f7931a;
+}
+
+form{
+    max-width:400px;
+    margin:0 auto;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:none;
+    border-radius:8px;
 }
 
 button{
-background:linear-gradient(135deg,#00f0ff,#0044ff);
-border:none;
-padding:12px 30px;
-border-radius:30px;
-cursor:pointer;
-font-weight:bold;
-color:#fff;
-transition:0.3s;
-margin-top:10px;
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    background:#f7931a;
+    border:none;
+    border-radius:8px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
 }
+
 button:hover{
-transform:scale(1.05);
-box-shadow:0 0 15px #00f0ff;
+    background:#ffb347;
 }
 
 .whatsapp-float{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-width:65px;
-height:65px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-box-shadow:0 0 20px #25D366;
-z-index:999;
+    position:fixed;
+    width:60px;
+    height:60px;
+    bottom:20px;
+    right:20px;
+    background:#25d366;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+    color:white;
+    text-decoration:none;
+    box-shadow:0 0 15px rgba(0,0,0,0.4);
 }
-.whatsapp-float img{width:35px}
 
-#cryptoRain{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-z-index:-1;
+footer{
+    margin-top:60px;
+    padding:20px;
+    background:rgba(0,0,0,0.3);
 }
 </style>
 </head>
 
 <body>
 
-<canvas id="cryptoRain"></canvas>
-
 <header>
-<h1>MinerCriptoARG</h1>
-<p>Infraestructura privada de minería de Bitcoin</p>
+<div class="logo-principal">₿ Proyecto BTC Mining</div>
+<div class="subtitulo">Sistema Automatizado de Generación Digital</div>
 </header>
 
-<section>
-
-<div class="card">
-<h2>BTC Minados en USD</h2>
-<div class="btc-counter" id="btcAmount">$3,927.00</div>
-<p>Actualización automática progresiva</p>
+<section class="contador-box">
+<h2>💰 Total Minado Hasta el Momento</h2>
+<div class="contador">
+<img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" width="28" style="vertical-align:middle;">
+<span id="contador">3927</span> USD
 </div>
-
-<div class="card">
-<h2>¿Qué hacemos?</h2>
-<p>Operamos equipos de minería de Bitcoin con infraestructura propia en Argentina, con equipos ASIC de alto rendimiento.</p>
-</div>
-
-<div class="card">
-<h2>Equipo</h2>
-<div class="team-photos">
-<img src="./persona6.jpg">
-<img src="./persona7.jpg">
-<img src="./persona8.jpg">
-</div>
-</div>
-
-<div class="card">
-<h2>Módulos ASIC</h2>
-<div class="asic-grid">
-<div class="asic-card">ASIC 1</div>
-<div class="asic-card">ASIC 2</div>
-<div class="asic-card">ASIC 3</div>
-<div class="asic-card">ASIC 4</div>
-</div>
-</div>
-
-<div class="card">
-<h2>🚀 Para más información</h2>
-<p>Completá tus datos y nos pondremos en contacto contigo.</p>
-
-<form id="contactForm">
-<div class="form-group">
-<label>Nombre</label>
-<input type="text" id="nombre" required>
-</div>
-
-<div class="form-group">
-<label>Apellido</label>
-<input type="text" id="apellido" required>
-</div>
-
-<div class="form-group">
-<label>Email o Teléfono</label>
-<input type="text" id="contacto" required>
-</div>
-
-<button type="submit">Solicitar Información</button>
-</form>
-</div>
-
 </section>
 
-<footer style="padding:20px;">
-© 2026 Ángel Cripto Mining
+<section class="info">
+<p>
+Este proyecto está diseñado para participar en la nueva economía digital basada en criptomonedas.
+Utilizamos infraestructura tecnológica avanzada para optimizar procesos digitales automatizados.
+</p>
+<br>
+<p>
+Nuestro objetivo es expandir la comunidad y ofrecer información clara sobre cómo formar parte.
+Si querés más detalles, completá el formulario y nos pondremos en contacto.
+</p>
+</section>
+
+<section class="form-section">
+<h2>📩 Para más información</h2>
+
+<form onsubmit="enviarWhatsApp(event)">
+<input type="text" id="nombre" placeholder="Nombre" required>
+<input type="text" id="apellido" placeholder="Apellido" required>
+<input type="email" id="email" placeholder="Mail">
+<input type="tel" id="telefono" placeholder="Teléfono">
+<button type="submit">Quiero Ser Parte</button>
+</form>
+</section>
+
+<footer>
+© 2026 Proyecto BTC Mining - Todos los derechos reservados
 </footer>
 
-<a href="https://wa.me/541170663630" target="_blank" class="whatsapp-float">
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
-</a>
+<a class="whatsapp-float" href="https://wa.me/541170663630" target="_blank">💬</a>
 
 <script>
-// CONTADOR BTC LENTO
-let btcValue=3927;
-const btcDisplay=document.getElementById("btcAmount");
-function animateBTC(){
-btcValue+=0.01;
-btcDisplay.textContent="$"+btcValue.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});
-setTimeout(animateBTC,1000);
+let contador = 3927;
+const elemento = document.getElementById("contador");
+
+setInterval(() => {
+    contador += Math.random() * 0.15;
+    elemento.textContent = contador.toFixed(2);
+}, 3000);
+
+function enviarWhatsApp(event){
+    event.preventDefault();
+
+    const nombre = document.getElementById("nombre").value;
+    const apellido = document.getElementById("apellido").value;
+    const email = document.getElementById("email").value;
+    const telefono = document.getElementById("telefono").value;
+
+    const mensaje = `Hola, quiero información del Proyecto BTC:%0A
+Nombre: ${nombre}%0A
+Apellido: ${apellido}%0A
+Mail: ${email}%0A
+Teléfono: ${telefono}`;
+
+    window.open(`https://wa.me/541170663630?text=${mensaje}`, '_blank');
 }
-animateBTC();
-
-// FORM ENVIA A WHATSAPP
-document.getElementById("contactForm").addEventListener("submit",function(e){
-e.preventDefault();
-let nombre=document.getElementById("nombre").value;
-let apellido=document.getElementById("apellido").value;
-let contacto=document.getElementById("contacto").value;
-
-let mensaje=`Hola, quiero más información sobre el proyecto.%0A%0ANombre: ${nombre}%0AApellido: ${apellido}%0AContacto: ${contacto}`;
-
-window.open(`https://wa.me/541170663630?text=${mensaje}`,"_blank");
-
-this.reset();
-});
-
-// LLUVIA CRIPTO
-const canvas=document.getElementById('cryptoRain');
-const ctx=canvas.getContext('2d');
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
-const cryptos=['₿','Ξ','Ł','₮','Ƀ'];
-const fontSize=28;
-const columns=Math.floor(canvas.width/fontSize);
-const drops=Array(columns).fill(1);
-
-function draw(){
-ctx.fillStyle='rgba(11,15,30,0.05)';
-ctx.fillRect(0,0,canvas.width,canvas.height);
-ctx.fillStyle='#00f0ff';
-ctx.font=fontSize+'px monospace';
-for(let i=0;i<drops.length;i++){
-const text=cryptos[Math.floor(Math.random()*cryptos.length)];
-ctx.fillText(text,i*fontSize,drops[i]*fontSize);
-if(drops[i]*fontSize>canvas.height&&Math.random()>0.975)drops[i]=0;
-drops[i]++;
-}}
-setInterval(draw,120);
 </script>
 
 </body>
