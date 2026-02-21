@@ -5,28 +5,29 @@
 <title>MinerCriptARG1</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto+Mono&display=swap" rel="stylesheet">
 <style>
-* { box-sizing: border-box; margin:0; padding:0; }
+* { box-sizing:border-box; margin:0; padding:0; }
 body {
-    font-family: 'Roboto Mono', monospace;
-    background: #0b0f1e;
-    color: #e0e0e0;
-    text-align: center;
-    overflow-x: hidden;
+    font-family:'Roboto Mono', monospace;
+    background:#0b0f1e;
+    color:#e0e0e0;
+    text-align:center;
+    overflow-x:hidden;
 }
 a { text-decoration:none; color:inherit; }
 header {
     background: linear-gradient(135deg,#0d1a2a,#081021);
-    padding: 50px 20px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    padding:50px 20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.5);
     position: relative;
+    z-index:1;
 }
-header h1 { font-family: 'Orbitron', sans-serif; font-size: 42px; color:#00f0ff; margin-bottom:10px; text-shadow:0 0 8px #00f0ff; }
+header h1 { font-family:'Orbitron', sans-serif; font-size:42px; color:#00f0ff; margin-bottom:10px; text-shadow:0 0 8px #00f0ff; }
 header p { font-size:18px; color:#a0c0ff; }
 .mined-counter { font-size:20px; color:#00ffff; margin-top:10px; text-shadow:0 0 6px #00ffff; }
 .operando { position:absolute; top:15px; right:20px; font-size:14px; color:#ffdd00; font-weight:bold; text-shadow:0 0 5px #ffdd00; }
 
-.logo-container img { width:220px; margin-top:20px; border-radius:15px; }
-section { padding:50px 20px; }
+.logo-container img { width:220px; margin-top:20px; border-radius:15px; position:relative; z-index:1; }
+section { padding:50px 20px; position:relative; z-index:1; }
 .card {
     background: rgba(20,35,60,0.85);
     margin:25px auto;
@@ -192,39 +193,39 @@ button:hover { transform:scale(1.05); box-shadow:0 0 15px #00f0ff; }
 </section>
 
 <footer>
-    ©️ 2026 MinerCriptoARG - Proyecto privado independiente
+    ©️ 2026 Ángel Cripto Mining - Proyecto privado independiente
 </footer>
 
 <script>
 const btn = document.getElementById('infoBtn');
 const paymentInfo = document.getElementById('paymentInfo');
-btn.addEventListener('click',()=>{ paymentInfo.style.display = (paymentInfo.style.display==="block")?"none":"block"; });
+btn.addEventListener('click',()=>{ paymentInfo.style.display=(paymentInfo.style.display==="block")?"none":"block"; });
 
 document.getElementById('requestForm').addEventListener('submit',function(e){
     e.preventDefault();
-    paymentInfo.style.display = "block";
+    paymentInfo.style.display="block";
     alert("Gracias, tu información ha sido enviada. Se muestran los métodos de pago.");
     this.reset();
 });
 
 // Lluvia de criptos azul eléctrico
-const canvas = document.getElementById('cryptoRain');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-const cryptos = ['₿','Ξ','Ł','₮','Ƀ'];
-const fontSize = 28;
-const columns = Math.floor(canvas.width / fontSize);
-const drops = Array(columns).fill(1);
+const canvas=document.getElementById('cryptoRain');
+const ctx=canvas.getContext('2d');
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+const cryptos=['₿','Ξ','Ł','₮','Ƀ'];
+const fontSize=28;
+const columns=Math.floor(canvas.width/fontSize);
+const drops=Array(columns).fill(1);
 function draw(){
     ctx.fillStyle='rgba(11,15,30,0.04)';
     ctx.fillRect(0,0,canvas.width,canvas.height);
     ctx.fillStyle='#00f0ff';
     ctx.font=fontSize+'px monospace';
     for(let i=0;i<drops.length;i++){
-        const text = cryptos[Math.floor(Math.random()*cryptos.length)];
+        const text=cryptos[Math.floor(Math.random()*cryptos.length)];
         ctx.fillText(text,i*fontSize,drops[i]*fontSize);
-        if(drops[i]*fontSize > canvas.height && Math.random()>0.975) drops[i]=0;
+        if(drops[i]*fontSize>canvas.height && Math.random()>0.975) drops[i]=0;
         drops[i]++;
     }
 }
@@ -232,20 +233,20 @@ setInterval(draw,120);
 window.addEventListener('resize',()=>{ canvas.width=window.innerWidth; canvas.height=window.innerHeight; });
 
 // Contador usuarios
-const userCounter = document.querySelector('.user-counter');
-const startDate = new Date(2026,1,20);
+const userCounter=document.querySelector('.user-counter');
+const startDate=new Date(2026,1,20);
 function updateUsers(){
-    const now = new Date();
-    const diff = now-startDate;
-    const daysPassed = Math.floor(diff/(1000*60*60*24));
-    const added = Math.floor(daysPassed/2);
-    userCounter.textContent = 7+added;
+    const now=new Date();
+    const diff=now-startDate;
+    const daysPassed=Math.floor(diff/(1000*60*60*24));
+    const added=Math.floor(daysPassed/2);
+    userCounter.textContent=7+added;
 }
 updateUsers();
 setInterval(updateUsers,3600000);
 
 // Contador minados
-const minedCounter = document.getElementById('minedCounter');
+const minedCounter=document.getElementById('minedCounter');
 let usd=3900;
 let btc=0.05740149;
 function updateMined(){
