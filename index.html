@@ -231,17 +231,13 @@ z-index:-1;
 <li>Compatible con pools principales</li>
 </ul>
 </div>
-
-<div class="card">
-<h2>Módulos ASIC</h2>
-<p>6 equipos distribuidos en 3 filas × 2:</p>
-<div class="asic-grid">
-<div class="asic-card">ASIC 1</div>
-<div class="asic-card">ASIC 2</div>
-<div class="asic-card">ASIC 3</div>
-<div class="asic-card">ASIC 4</div>
-<div class="asic-card">ASIC 5</div>
-<div class="asic-card">ASIC 6</div>
+  .whatsapp-link {
+            display: inline-flex; align-items: center; background: #25D366;
+            color: white; padding: 10px 20px; border-radius: 30px; font-weight: bold;
+            margin-top: 15px; transition: 0.3s;
+        }
+        .whatsapp-link img { width: 25px; margin-right: 10px; }
+        .whatsapp-link:hover { transform: scale(1.05); box-shadow: 0 0 15px #25D366; }
 </div>
 </div>
 
@@ -259,10 +255,7 @@ z-index:-1;
  // Envío del formulario
     document.getElementById('requestForm').addEventListener('submit', function(e){
         e.preventDefault();
-        paymentInfo.style.display = "block";
-        alert("Gracias, tu información ha sido enviada. Se muestran los métodos de pago.");
-        this.reset();
-    });
+        paymentInfo.style.display 
 <script>
 /* BTC más lento */
 let btcValue=3927;
