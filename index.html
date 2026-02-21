@@ -254,7 +254,7 @@ z-index:-1;
 </section>
 
 <footer>
-©️ 2026 CriptoMinerARG- Proyecto privado independiente
+©️ 2026 CriptoMinerARG - Proyecto privado independiente
 </footer>
 
 <script>
@@ -267,36 +267,7 @@ btcDisplay.textContent="$"+btcValue.toLocaleString("en-US",{minimumFractionDigit
 setTimeout(animateBTC,1000); // actualiza cada segundo
 }
 animateBTC();
-/* FORMULARIO WHATSAPP */
-document.getElementById("contactForm").addEventListener("submit",function(e){
-e.preventDefault();
 
-let nombre=document.getElementById("nombre").value;
-let apellido=document.getElementById("apellido").value;
-let email=document.getElementById("email").value;
-let telefono=document.getElementById("telefono").value;
-
-let mensaje=`Nuevo interesado en MinerCriptoARG:%0A
-Nombre: ${nombre}%0A
-Apellido: ${apellido}%0A
-Email: ${email}%0A
-Telefono: ${telefono}`;
-
-window.open(`https://wa.me/5491170663630?text=${mensaje}`,'_blank');
-});
-
-/* ENVIO POR MAIL */
-function enviarMail(){
-let nombre=document.getElementById("nombre").value;
-let apellido=document.getElementById("apellido").value;
-let email=document.getElementById("email").value;
-let telefono=document.getElementById("telefono").value;
-
-let asunto="Nuevo interesado MinerCriptoARG";
-let cuerpo=`Nombre: ${nombre}\nApellido: ${apellido}\nEmail: ${email}\nTelefono: ${telefono}`;
-
-window.location.href=`mailto:ferplate_medinaa@outlook.es?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
-}
 /* lluvia */
 const canvas=document.getElementById('cryptoRain');
 const ctx=canvas.getContext('2d');
@@ -317,8 +288,6 @@ ctx.fillText(text,i*fontSize,drops[i]*fontSize);
 if(drops[i]*fontSize>canvas.height&&Math.random()>0.975)drops[i]=0;
 drops[i]++;
 }}
-
-}
 setInterval(draw,120);
 </script>
 
