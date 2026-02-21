@@ -6,6 +6,42 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto+Mono&display=swap" rel="stylesheet">
 
 <style>
+ /* ===== MINING STATS ===== */
+
+.mining-stats{
+margin-top:25px;
+}
+
+.progress-container{
+width:100%;
+height:20px;
+background:rgba(255,255,255,0.1);
+border-radius:20px;
+overflow:hidden;
+margin:20px 0;
+}
+
+.progress-bar{
+height:100%;
+width:0%;
+background:linear-gradient(90deg,#00f0ff,#0044ff);
+border-radius:20px;
+transition:width 0.5s ease;
+}
+
+.cycle-text{
+font-size:16px;
+margin-bottom:20px;
+color:#00f0ff;
+font-weight:bold;
+}
+
+#miniChart{
+width:100%;
+height:120px;
+background:rgba(0,0,0,0.4);
+border-radius:15px;
+}
 *{box-sizing:border-box;margin:0;padding:0}
 body{
 font-family:'Roboto Mono',monospace;
@@ -446,6 +482,64 @@ if(drops[i]*fontSize>canvas.height&&Math.random()>0.975)drops[i]=0;
 drops[i]++;
 }}
 setInterval(draw,120);
+/* ===== CICLO 30 DÍAS ===== */
+
+let currentDay = 1;
+const totalDays = 30;
+const dayDisplay = document.getElementById("dayCounter");
+const progressBar = document.getElementById("progressBar");
+
+function updateCycle(){
+    currentDay++;
+    if(currentDay > totalDays){
+        currentDay = 1;
+    }
+
+    dayDisplay.textContent = currentDay;
+    progressBar.style.width = (currentDay / totalDays) * 100 + "%";
+}
+
+setInterval(updateCycle, 1000);
+
+
+/* ===== MINI GRÁFICO SIMPLE ===== */
+
+const canvasChart = document.getElementById("miniChart");
+const ctxChart = canvasChart.getContext("2d");
+
+canvasChart.width = canvasChart.offsetWidth;
+canvasChart.height = 120;
+
+let points = [];
+
+function drawChart(){
+    ctxChart.clearRect(0,0,canvasChart.width,canvasChart.height);
+
+    points.push(Math.random() * canvasChart.height);
+
+    if(points.length > 30){
+        points.shift();
+    }
+
+    ctxChart.beginPath();
+    ctxChart.strokeStyle = "#00f0ff";
+    ctxChart.lineWidth = 2;
+
+    for(let i=0; i<points.length; i++){
+        let x = (canvasChart.width / 30) * i;
+        let y = canvasChart.height - points[i];
+
+        if(i === 0){
+            ctxChart.moveTo(x,y);
+        } else {
+            ctxChart.lineTo(x,y);
+        }
+    }
+
+    ctxChart.stroke();
+}
+
+setInterval(drawChart, 1000);
 </script>
 <!-- BOTÓN WHATSAPP PRO -->
 <a href="https://wa.me/5491170663630?text=Hola%20quiero%20recibir%20informacion%20sobre%20MinerCriptoARG"
