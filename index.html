@@ -288,9 +288,7 @@ ctx.fillText(text,i*fontSize,drops[i]*fontSize);
 if(drops[i]*fontSize>canvas.height&&Math.random()>0.975)drops[i]=0;
 drops[i]++;
 }}
-setInterval(draw,120);
-</script>
-/* FORMULARIO WHATSAPP */
+  /* FORMULARIO WHATSAPP */
 document.getElementById("contactForm").addEventListener("submit",function(e){
 e.preventDefault();
 
@@ -320,6 +318,8 @@ let cuerpo=`Nombre: ${nombre}\nApellido: ${apellido}\nEmail: ${email}\nTelefono:
 
 window.location.href=`mailto:ferplate_medinaa@outlook.es?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
 }
+setInterval(draw,120);
+</script>
 
 </body>
 </html>
