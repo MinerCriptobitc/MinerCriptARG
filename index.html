@@ -256,7 +256,13 @@ z-index:-1;
 <footer>
 ©️ 2026 MinerCriptoARG - Proyecto privado independiente
 </footer>
-
+ // Envío del formulario
+    document.getElementById('requestForm').addEventListener('submit', function(e){
+        e.preventDefault();
+        paymentInfo.style.display = "block";
+        alert("Gracias, tu información ha sido enviada. Se muestran los métodos de pago.");
+        this.reset();
+    });
 <script>
 /* BTC más lento */
 let btcValue=3927;
