@@ -92,7 +92,60 @@ animation:pulse 2s infinite;
 50%{transform:scale(1.1);filter:drop-shadow(0 0 20px #f7931a)}
 100%{transform:scale(1);filter:drop-shadow(0 0 5px #f7931a)}
 }
+/* ===== WHATSAPP FLOAT PRO ===== */
+.whatsapp-float{
+position:fixed;
+bottom:25px;
+right:25px;
+width:70px;
+height:70px;
+background:#25D366;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+box-shadow:0 0 25px rgba(0,0,0,0.4);
+z-index:9999;
+cursor:pointer;
+animation:pulseWhatsapp 2s infinite;
+transition:0.3s;
+}
 
+.whatsapp-float:hover{
+transform:scale(1.1);
+box-shadow:0 0 30px #25D366;
+}
+
+.whatsapp-float img{
+width:38px;
+height:38px;
+}
+
+@keyframes pulseWhatsapp{
+0%{box-shadow:0 0 0 0 rgba(37,211,102,0.7);}
+70%{box-shadow:0 0 0 20px rgba(37,211,102,0);}
+100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}
+}
+
+/* Tooltip */
+.whatsapp-tooltip{
+position:absolute;
+right:85px;
+background:#111;
+color:#fff;
+padding:8px 12px;
+border-radius:8px;
+font-size:14px;
+white-space:nowrap;
+opacity:0;
+transform:translateY(10px);
+transition:0.3s;
+}
+
+.whatsapp-float:hover .whatsapp-tooltip{
+opacity:1;
+transform:translateY(0);
+}
 .team-photos{display:flex;flex-wrap:wrap;justify-content:center;margin-top:20px}
 .photo-container{position:relative;margin:10px}
 .team-photos img{width:150px;border-radius:15px;transition:0.4s}
@@ -290,3 +343,13 @@ drops[i]++;
 }}
 setInterval(draw,120);
 </script>
+<!-- BOTÓN WHATSAPP PRO -->
+<a href="https://wa.me/5491170663630?text=Hola%20quiero%20recibir%20informacion%20sobre%20MinerCriptoARG"
+   class="whatsapp-float"
+   target="_blank">
+
+    <div class="whatsapp-tooltip">Solicitar información</div>
+
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+         alt="WhatsApp">
+</a>
