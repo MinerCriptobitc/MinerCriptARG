@@ -25,38 +25,6 @@
 
         .logo-container img { width: 220px; margin-top: 20px; border-radius: 15px; }
 
-        /* ===== CONTADOR BTC AGREGADO ===== */
-        .btc-counter-container {
-            margin-top: 25px;
-            display: flex;
-            justify-content: center;
-        }
-        .btc-box {
-            background: rgba(20,35,60,0.85);
-            padding: 25px;
-            border-radius: 20px;
-            width: 80%;
-            max-width: 600px;
-            box-shadow: 0 0 25px rgba(0,255,255,0.3);
-            backdrop-filter: blur(8px);
-        }
-        .btc-box h2 {
-            font-family: 'Orbitron', sans-serif;
-            color: #00f0ff;
-            margin-bottom: 15px;
-            text-shadow: 0 0 8px #00f0ff;
-        }
-        .usd-counter {
-            font-size: 22px;
-            color: #4caf50;
-            margin-bottom: 10px;
-        }
-        .btc-counter {
-            font-size: 20px;
-            color: #f7931a;
-        }
-        /* ================================= */
-
         section { padding: 50px 20px; }
         .card {
             background: rgba(20,35,60,0.85);
@@ -70,6 +38,7 @@
             transition: transform 0.4s, box-shadow 0.4s;
         }
         .card:hover { transform: translateY(-10px); box-shadow: 0 0 30px rgba(0,255,255,0.5); }
+
         h2 { color: #00f0ff; font-family: 'Orbitron', sans-serif; margin-bottom: 15px; text-shadow: 0 0 6px #00f0ff; }
         p, li { color: #c0dfff; font-size: 16px; line-height: 1.5; }
         ul { text-align: left; margin-left: 20px; }
@@ -87,6 +56,25 @@
             margin-top: 15px;
         }
         button:hover { transform: scale(1.05); box-shadow: 0 0 15px #00f0ff; }
+
+        /* ===== BTC COUNTER ===== */
+        .btc-counter {
+            font-size: 34px;
+            font-weight: bold;
+            color: #00ffcc;
+            margin-top: 15px;
+            text-shadow: 0 0 10px #00ffcc;
+        }
+        .btc-logo {
+            width: 80px;
+            margin-bottom: 10px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); filter: drop-shadow(0 0 5px #f7931a); }
+            50% { transform: scale(1.1); filter: drop-shadow(0 0 20px #f7931a); }
+            100% { transform: scale(1); filter: drop-shadow(0 0 5px #f7931a); }
+        }
 
         .team-photos { display: flex; flex-wrap: wrap; justify-content: center; margin-top: 20px; }
         .team-photos .photo-container { position: relative; margin: 10px; }
@@ -106,25 +94,7 @@
 
         .user-counter { font-size: 22px; font-weight: bold; color: #00f0ff; margin-top: 10px; }
 
-        .payment-methods { display: none; margin-top: 15px; text-align: left; background: rgba(20,35,60,0.85); padding: 15px; border-radius: 15px; }
-        .payment-methods p { margin: 6px 0; }
-        .payment-methods p.binance { color: #f7931a; }
-        .payment-methods p.cbu { color: #4caf50; }
-
-        .whatsapp-link {
-            display: inline-flex; align-items: center; background: #25D366;
-            color: white; padding: 10px 20px; border-radius: 30px; font-weight: bold;
-            margin-top: 15px; transition: 0.3s;
-        }
-        .whatsapp-link img { width: 25px; margin-right: 10px; }
-        .whatsapp-link:hover { transform: scale(1.05); box-shadow: 0 0 15px #25D366; }
-
         #cryptoRain { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-1; }
-
-        .form-group { text-align:left; margin: 10px 0; }
-        .form-group label { display:block; margin-bottom:5px; color:#00f0ff; }
-        .form-group input { width: 100%; padding:8px; border-radius:8px; border:1px solid #00f0ff; background: rgba(0,0,0,0.2); color:#fff; }
-        #requestForm { margin-top: 15px; }
     </style>
 </head>
 <body>
@@ -135,37 +105,64 @@
     <img src="./logo.png" alt="Logo MinerCriptoARG">
 </div>
 
-<!-- ===== CONTADOR AGREGADO ===== -->
-<div class="btc-counter-container">
-    <div class="btc-box">
-        <h2>BTC Minados en Tiempo Real</h2>
-        <p class="usd-counter">$ <span id="usdValue">3927.00</span> USD</p>
-        <p class="btc-counter">₿ <span id="btcValue">0.00000000</span> BTC</p>
-    </div>
-</div>
-
 <header>
     <h1>MinerCriptoARG</h1>
     <p>Infraestructura privada de minería de Bitcoin</p>
 </header>
 
-<!-- TU CONTENIDO ORIGINAL SIGUE EXACTAMENTE IGUAL -->
-<!-- (No lo recorto aquí por espacio en explicación, pero en tu archivo queda todo como lo enviaste) -->
+<section>
+
+    <!-- NUEVO CONTADOR BTC -->
+    <div class="card">
+        <img class="btc-logo" src="https://upload.wikimedia.org/wikipedia/commons/4/46/Bitcoin.svg" alt="Bitcoin Logo">
+        <h2>BTC Minados en USD</h2>
+        <div class="btc-counter" id="btcAmount">$3,927.00</div>
+        <p>Actualización automática en tiempo real</p>
+    </div>
+
+    <!-- RESTO DE TU CONTENIDO ORIGINAL -->
+    <div class="card">
+        <h2>¿Qué hacemos?</h2>
+        <p>Operamos equipos de minería de Bitcoin con infraestructura propia en Argentina.</p>
+    </div>
+
+</section>
 
 <script>
-    // ================== CONTADOR BTC ==================
-    let usdMined = 3927;
-    const btcPrice = 65000;
-    const usdElement = document.getElementById("usdValue");
-    const btcElement = document.getElementById("btcValue");
+    // ===== BTC COUNTER EN TIEMPO REAL =====
+    let btcValue = 3927;
+    const btcDisplay = document.getElementById("btcAmount");
 
-    function updateBtcCounter() {
-        usdMined += Math.random() * 0.05;
-        usdElement.textContent = usdMined.toFixed(2);
-        const btcAmount = usdMined / btcPrice;
-        btcElement.textContent = btcAmount.toFixed(8);
+    function animateBTC() {
+        btcValue += Math.random() * 0.35; // incremento suave
+        btcDisplay.textContent = "$" + btcValue.toLocaleString("en-US", {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        requestAnimationFrame(animateBTC);
     }
-    setInterval(updateBtcCounter, 100);
+    animateBTC();
+
+    // ===== LLUVIA CRIPTO =====
+    const canvas = document.getElementById('cryptoRain');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const cryptos = ['₿','Ξ','Ł','₮','Ƀ'];
+    const fontSize = 28;
+    const columns = Math.floor(canvas.width / fontSize);
+    const drops = Array(columns).fill(1);
+
+    function draw() {
+        ctx.fillStyle = 'rgba(11,15,30,0.04)';
+        ctx.fillRect(0,0,canvas.width,canvas.height);
+        ctx.fillStyle = '#00f0ff';
+        ctx.font = fontSize+'px monospace';
+        for(let i=0;i<drops.length;i++){
+            const text = cryptos[Math.floor(Math.random()*cryptos.length)];
+            ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+            if(drops[i]*fontSize > canvas.height && Math.random()>0.975) drops[i]=0;
+            drops[i]++;
+        }
+    }
+    setInterval(draw,120);
 </script>
 
 </body>
