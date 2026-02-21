@@ -58,24 +58,6 @@ text-shadow:0 0 6px #00f0ff;
 p,li{color:#c0dfff;font-size:16px;line-height:1.5}
 ul{text-align:left;margin-left:20px}
 
-button{
-background:linear-gradient(135deg,#00f0ff,#0044ff);
-border:none;
-padding:12px 30px;
-font-size:16px;
-border-radius:30px;
-cursor:pointer;
-font-weight:bold;
-color:#fff;
-transition:0.3s;
-margin-top:15px;
-}
-button:hover{
-transform:scale(1.05);
-box-shadow:0 0 15px #00f0ff;
-}
-
-/* BTC */
 .btc-counter{
 font-size:36px;
 font-weight:bold;
@@ -83,20 +65,10 @@ color:#00ffcc;
 margin-top:10px;
 text-shadow:0 0 12px #00ffcc;
 }
-.btc-logo{
-width:80px;
-animation:pulse 2s infinite;
-}
-@keyframes pulse{
-0%{transform:scale(1);filter:drop-shadow(0 0 5px #f7931a)}
-50%{transform:scale(1.1);filter:drop-shadow(0 0 20px #f7931a)}
-100%{transform:scale(1);filter:drop-shadow(0 0 5px #f7931a)}
-}
 
 .team-photos{display:flex;flex-wrap:wrap;justify-content:center;margin-top:20px}
 .photo-container{position:relative;margin:10px}
 .team-photos img{width:150px;border-radius:15px;transition:0.4s}
-.team-photos img:hover{transform:scale(1.05);box-shadow:0 0 20px #00f0ff}
 .overlay{
 position:absolute;bottom:0;left:0;right:0;
 background:rgba(0,0,0,0.7);
@@ -119,47 +91,19 @@ margin-top:15px;
 background:rgba(20,35,60,0.85);
 padding:20px;
 border-radius:15px;
-width:100%;
 max-width:300px;
 box-shadow:0 0 15px rgba(0,255,255,0.2);
-transition:0.3s;
-}
-.asic-card:hover{
-transform:translateY(-5px);
-box-shadow:0 0 25px #00f0ff;
 }
 
-.user-counter{
-font-size:22px;
-font-weight:bold;
-color:#00f0ff;
-margin-top:10px;
-}
-
-.payment-methods{
-display:none;
-margin-top:15px;
-text-align:left;
-background:rgba(20,35,60,0.85);
-padding:15px;
-border-radius:15px;
-}
-
-.whatsapp-link{
-display:inline-flex;
-align-items:center;
-background:#25D366;
-color:white;
-padding:10px 20px;
-border-radius:30px;
-font-weight:bold;
-margin-top:15px;
-transition:0.3s;
-}
-.whatsapp-link img{width:25px;margin-right:10px}
-.whatsapp-link:hover{
-transform:scale(1.05);
-box-shadow:0 0 15px #25D366;
+.form-group{margin:10px 0;text-align:left}
+.form-group label{color:#00f0ff}
+.form-group input{
+width:100%;
+padding:8px;
+border-radius:8px;
+border:1px solid #00f0ff;
+background:rgba(0,0,0,0.3);
+color:#fff;
 }
 
 #cryptoRain{
@@ -167,6 +111,31 @@ position:fixed;
 top:0;left:0;
 width:100%;height:100%;
 z-index:-1;
+}
+
+/* BOTON WHATSAPP FLOTANTE */
+.whatsapp-float{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:#fff;
+border-radius:50%;
+width:65px;
+height:65px;
+display:flex;
+align-items:center;
+justify-content:center;
+box-shadow:0 0 15px #25D366;
+z-index:999;
+transition:0.3s;
+}
+.whatsapp-float:hover{
+transform:scale(1.1);
+box-shadow:0 0 25px #25D366;
+}
+.whatsapp-float img{
+width:35px;
 }
 </style>
 </head>
@@ -176,7 +145,7 @@ z-index:-1;
 <canvas id="cryptoRain"></canvas>
 
 <div class="logo-container">
-<img src="./logo.png" alt="Logo MinerCriptoARG">
+<img src="./logo.png" alt="Logo">
 </div>
 
 <header>
@@ -187,7 +156,6 @@ z-index:-1;
 <section>
 
 <div class="card">
-<img class="btc-logo" src="https://upload.wikimedia.org/wikipedia/commons/4/46/Bitcoin.svg">
 <h2>BTC Minados en USD</h2>
 <div class="btc-counter" id="btcAmount">$3,927.00</div>
 <p>Actualización progresiva automática</p>
@@ -199,74 +167,74 @@ z-index:-1;
 </div>
 
 <div class="card">
-<h2>Transparencia</h2>
-<p>Proyecto en etapa de expansión. La minería de criptomonedas implica resolver problemas matemáticos complejos, validando y asegurando transacciones en blockchain sin intermediarios.</p>
-</div>
-
-<div class="card">
-<h2>Nuestra visión</h2>
-<p>Convertirnos en la infraestructura privada de minería de Bitcoin más sólida y confiable de Argentina.</p>
-</div>
-
-<div class="card">
 <h2>Equipo</h2>
-<p>Conocé al equipo:</p>
 <div class="team-photos">
-<div class="photo-container"><img src="./persona6.jpg"><div class="overlay">Miembro 6</div></div>
-<div class="photo-container"><img src="./persona7.jpg"><div class="overlay">Miembro 7</div></div>
-<div class="photo-container"><img src="./persona8.jpg"><div class="overlay">Miembro 8</div></div>
-<div class="photo-container"><img src="./persona9.jpg"><div class="overlay">Miembro 9</div></div>
-<div class="photo-container"><img src="./persona10.jpg"><div class="overlay">Miembro 10</div></div>
+<div class="photo-container"><img src="./persona6.jpg"><div class="overlay">Miembro 1</div></div>
+<div class="photo-container"><img src="./persona7.jpg"><div class="overlay">Miembro 2</div></div>
+<div class="photo-container"><img src="./persona8.jpg"><div class="overlay">Miembro 3</div></div>
 </div>
-</div>
-
-<div class="card">
-<h2>Minero Whatsminer M30S++</h2>
-<ul>
-<li>Hashrate: 112 TH/s</li>
-<li>Consumo eléctrico: 3472 W ±10%</li>
-<li>Fuente recomendada: 220V</li>
-<li>Refrigeración: ventiladores integrados</li>
-<li>Conexión estable requerida</li>
-<li>Compatible con pools principales</li>
-</ul>
 </div>
 
 <div class="card">
 <h2>Módulos ASIC</h2>
-<p>6 equipos distribuidos en 3 filas × 2:</p>
 <div class="asic-grid">
 <div class="asic-card">ASIC 1</div>
 <div class="asic-card">ASIC 2</div>
 <div class="asic-card">ASIC 3</div>
 <div class="asic-card">ASIC 4</div>
-<div class="asic-card">ASIC 5</div>
-<div class="asic-card">ASIC 6</div>
 </div>
 </div>
 
 <div class="card">
-<h2>Usuarios registrados</h2>
-<p class="user-counter">7</p>
-<p>Súmate al proyecto.</p>
+<h2>Para información</h2>
+<form id="infoForm">
+<div class="form-group">
+<label>Nombre</label>
+<input type="text" id="nombre" required>
+</div>
+<div class="form-group">
+<label>Apellido</label>
+<input type="text" id="apellido" required>
+</div>
+<div class="form-group">
+<label>Email o Número</label>
+<input type="text" id="contacto" required>
+</div>
+<button type="submit">Enviar por WhatsApp</button>
+</form>
 </div>
 
 </section>
 
 <footer>
-©️ 2026 CriptoMinerARG - Proyecto privado independiente
+©️ 2026 Ángel Cripto Mining - Proyecto privado independiente
 </footer>
 
+<!-- BOTON WHATSAPP FLOTANTE -->
+<a href="https://wa.me/541170663630" target="_blank" class="whatsapp-float">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+</a>
+
 <script>
-/* BTC más lento */
+/* BTC lento */
 let btcValue=3927;
 const btcDisplay=document.getElementById("btcAmount");
 function animateBTC(){
-btcValue+=0.01; // mucho más lento
+btcValue+=0.01;
 btcDisplay.textContent="$"+btcValue.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});
-setTimeout(animateBTC,1000); // actualiza cada segundo
+setTimeout(animateBTC,1000);
 }
 animateBTC();
+
+/* FORM WHATSAPP */
+document.getElementById("infoForm").addEventListener("submit",function(e){
+e.preventDefault();
+let nombre=document.getElementById("nombre").value;
+let apellido=document.getElementById("apellido").value;
+let contacto=document.getElementById("contacto").value;
+let mensaje=`Hola, quiero información para ser parte del proyecto.%0A%0ANombre: ${nombre}%0AApellido: ${apellido}%0AContacto: ${contacto}`;
+window.open(`https://wa.me/541170663630?text=${mensaje}`,"_blank");
+});
 
 /* lluvia */
 const canvas=document.getElementById('cryptoRain');
